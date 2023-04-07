@@ -1,0 +1,30 @@
+.header {
+    padding: 0 50px 0 50px;
+    display: grid;
+    grid-template-areas: "logo nav";
+}
+
+.nav {
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    align-items: center;
+    justify-items: center;
+}
+
+.navItemActive{
+    font-size: x-large;
+}
+
+.navItemActive:hover{
+    color: yellow;
+}
+
+.navItemNonActive{
+    color: yellow;
+    font-size: x-large;
+}
+
+.navItemNonActive:hover{
+    color: darken(yellow,10);
+}
