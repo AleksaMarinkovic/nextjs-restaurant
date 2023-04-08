@@ -1,15 +1,44 @@
+$menu-nav-item-color: #ffffff;
+$menu-nav-item-color-hover: darken($menu-nav-item-color, 20);
+
 .header {
     padding: 0 50px 0 50px;
-    display: grid;
-    grid-template-areas: "logo nav";
+    display: flex;
+    flex-flow: row;
+    justify-content:space-between;
+    background-color: black;
+    color: $menu-nav-item-color;
+    font-size: x-large;
+}
+
+.leftSideMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middleMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+}
+
+.logoWrapper{
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav {
-    grid-area: nav;
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
 }
 
 .navItemActive{
@@ -17,14 +46,21 @@
 }
 
 .navItemActive:hover{
-    color: yellow;
+    color: $menu-nav-item-color-hover;
 }
 
 .navItemNonActive{
-    color: yellow;
+    color: $menu-nav-item-color;
+    text-decoration: none;
     font-size: x-large;
 }
 
 .navItemNonActive:hover{
-    color: darken(yellow,10);
+    color: $menu-nav-item-color-hover;
+}
+
+.rightSideMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
