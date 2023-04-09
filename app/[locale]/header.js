@@ -2,6 +2,8 @@ import styles from "./header.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { settings } from "./settings";
+import LanguagePicker from "./languagePicker";
+import { getTranslations } from "next-intl/server";
 
 async function getHeaderInfo() {
   const res = await fetch(
@@ -35,10 +37,11 @@ const dayOpenningHourInfo = (openningHours) => {
 
 const Header = async () => {
   const headerInfo = await getHeaderInfo();
+  const t = await getTranslations("Homepage");
   return (
     <header className={styles.header}>
       <div className={styles.leftSideMenu}>
-        Otvoreno danas:
+        {t('openningHours')}
         {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
       </div>
       <div className={styles.middleMenu}>
@@ -55,19 +58,19 @@ const Header = async () => {
         </div>
 
         <nav className={styles.nav}>
-          <Link href="/" className={styles.navItemNonActive}>
-            Home
+          <Link href="/" className={styles.navItemNonActive}>            
+        {t('home')}
           </Link>
           <Link href="/contact" className={styles.navItemNonActive}>
-            Contact
+          {t('contact')}
           </Link>
           <Link href="/menu" className={styles.navItemNonActive}>
-            Menu
+          {t('menu')}
           </Link>
         </nav>
       </div>
       <div className={styles.rightSideMenu}>
-        <div>Choose your language</div>
+        <LanguagePicker></LanguagePicker>
       </div>
     </header>
   );

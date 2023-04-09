@@ -1,0 +1,12 @@
+{
+  "Homepage": {
+    "openningHours": "Open today: ",
+    "home": "Home",
+    "contact": "Contact",
+    "menu": "Menu",
+    "chooseLanguage": "Choose language"
+  },
+  "Menu": {
+    "title": "Menu items"
+  }
+}

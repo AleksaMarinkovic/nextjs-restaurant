@@ -1,0 +1,12 @@
+{
+  "Homepage": {
+    "openningHours": "Otvoreno danas: ",
+    "home": "Naslovna",
+    "contact": "Kontakt",
+    "menu": "Jelovnik",
+    "chooseLanguage": "Izaberite jezik"
+  },
+  "Menu": {
+    "title": "Stavke sa jelovnika"
+  }
+}

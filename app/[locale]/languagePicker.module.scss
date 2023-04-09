@@ -1,0 +1,11 @@
+.languagePicker {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.image{
+    display: block;
+}
+.image:hover{
+    cursor: pointer;
+}
