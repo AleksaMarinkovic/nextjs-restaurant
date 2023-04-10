@@ -1,5 +1,5 @@
 $menu-nav-item-color: #adadad;
-$menu-nav-item-color-hover: lighten($menu-nav-item-color, 30);
+$menu-nav-item-color-hover: #f6d17a;
 
 .header {
     display: grid;
@@ -29,7 +29,7 @@ $menu-nav-item-color-hover: lighten($menu-nav-item-color, 30);
     gap: 1rem 0px;
     grid-template-areas: 
     "clockIcon oppeningHours"
-    "phoneIcon phone"; 
+    "phoneIcon phone";
 }
 
 .clockIcon {
@@ -52,6 +52,7 @@ $menu-nav-item-color-hover: lighten($menu-nav-item-color, 30);
 
 .phone {
     grid-area: phone;
+    font-size: medium;
     justify-self: start;
     align-self: center;
 }

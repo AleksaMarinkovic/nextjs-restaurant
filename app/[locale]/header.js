@@ -59,7 +59,7 @@ export default async function Header({ locale }) {
               {t("openningHours")} :{" "}
               {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
             </div>
-            <div className="phone">{headerInfo.attributes.contact.mobile}</div>
+            <div className={styles.phone}>{headerInfo.attributes.contact.mobile}</div>
           </div>
         </div>
         <div className={styles.middleMenu}>
