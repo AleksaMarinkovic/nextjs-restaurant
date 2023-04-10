@@ -8,5 +8,17 @@
   },
   "Menu": {
     "title": "Menu items"
+  },
+  "Contact":{
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "openningHours": "Working hours",
+    "socialMedia": "Visit our social media",
+    "location": "Where can you find us?"
   }
 }

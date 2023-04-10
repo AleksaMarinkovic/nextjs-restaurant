@@ -8,5 +8,17 @@
   },
   "Menu": {
     "title": "Stavke sa jelovnika"
+  },
+  "Contact": {
+    "monday": "Ponedeljak",
+    "tuesday": "Utorak",
+    "wednesday": "Sreda",
+    "thursday": "Četvrtak",
+    "friday": "Petak",
+    "saturday": "Subota",
+    "sunday": "Nedelja",
+    "openningHours": "Radno vreme",
+    "socialMedia": "Posetite naše društvene mreže",
+    "location": "Gde se nalazimo?"
   }
 }

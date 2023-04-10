@@ -5,11 +5,10 @@ import { settings } from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
 
-async function getHeaderInfo() {
+async function getHeaderInfo(locale) {
   const res = await fetch(
-    settings.backendUrl +
-      "/api/restaurant?fields[0]=name&populate[0]=logo&populate[1]=openningHours&populate[2]=contact",
-    { next: { revalidate: 20 } }
+    `${settings.backendUrl}/api/restaurant?fields[0]=name&populate[0]=logo&populate[1]=openningHours&populate[2]=contact&locale=${locale}`,
+    { next: { revalidate: settings.revalidateTime } }
   );
   const data = await res.json();
   return data.data;
@@ -35,13 +34,13 @@ const dayOpenningHourInfo = (openningHours) => {
   }
 };
 
-const Header = async () => {
-  const headerInfo = await getHeaderInfo();
+export default async function Header({ locale }) {
+  const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Homepage");
   return (
     <header className={styles.header}>
       <div className={styles.leftSideMenu}>
-        {t('openningHours')}
+        {t("openningHours")}
         {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
       </div>
       <div className={styles.middleMenu}>
@@ -52,28 +51,26 @@ const Header = async () => {
               settings.backendUrl +
               headerInfo.attributes.logo.data.attributes.url
             }
+            draggable={false}
             width={250}
             height={250}
           ></Image>
         </div>
-
-        <nav className={styles.nav}>
-          <Link href="/" className={styles.navItemNonActive}>            
-        {t('home')}
-          </Link>
-          <Link href="/contact" className={styles.navItemNonActive}>
-          {t('contact')}
-          </Link>
-          <Link href="/menu" className={styles.navItemNonActive}>
-          {t('menu')}
-          </Link>
-        </nav>
       </div>
+      <nav className={styles.nav}>
+        <Link href="/" className={styles.navItemNonActive}>
+          {t("home")}
+        </Link>
+        <Link href="/contact" className={styles.navItemNonActive}>
+          {t("contact")}
+        </Link>
+        <Link href="/menu" className={styles.navItemNonActive}>
+          {t("menu")}
+        </Link>
+      </nav>
       <div className={styles.rightSideMenu}>
         <LanguagePicker></LanguagePicker>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
