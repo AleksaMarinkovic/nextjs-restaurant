@@ -77,8 +77,8 @@ $menu-nav-item-color-hover: #f6d17a;
     display: flex;
     align-self: stretch;
     flex-direction: row;
-    align-content: space-evenly;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 5rem;
     grid-area: navBar;
 }
 
