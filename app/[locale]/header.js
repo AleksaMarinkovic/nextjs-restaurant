@@ -69,7 +69,7 @@ export default async function Header({ locale }) {
         </Link>
       </nav>
       <div className={styles.rightSideMenu}>
-        <LanguagePicker></LanguagePicker>
+        <LanguagePicker locale={locale}></LanguagePicker>
       </div>
     </header>
   );

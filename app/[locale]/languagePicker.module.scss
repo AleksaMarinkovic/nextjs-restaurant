@@ -3,9 +3,19 @@
     flex-direction: row;
     gap: 1rem;
 }
-.image{
+
+.linkStyle {
+    border: 2px solid brown;
+}
+
+.linkStyleActive {
+    border: 2px solid green;
+}
+
+.image {
     display: block;
 }
-.image:hover{
+
+.image:hover {
     cursor: pointer;
 }

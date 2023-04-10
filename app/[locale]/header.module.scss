@@ -59,6 +59,7 @@ $menu-nav-item-color-hover: darken($menu-nav-item-color, 20);
     color: $menu-nav-item-color;
     text-decoration: none;
     font-size: x-large;
+    transition: color 0.5s;
 }
 
 .navItemNonActive:hover {

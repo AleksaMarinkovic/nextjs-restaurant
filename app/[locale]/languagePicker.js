@@ -5,10 +5,11 @@ import FlagUk from "../../public/Flag-UK_50x30.webp";
 import styles from "./languagePicker.module.scss";
 import { Link } from "next-intl";
 
-const LanguagePicker = () => {
+const LanguagePicker = ({locale}) => {
+  
   return (
     <div className={styles.languagePicker}>
-      <Link href='/' locale='sr'>
+      <Link href='/' locale='sr' className={locale =='sr' ? styles.linkStyleActive : styles.linkStyle}>
         <Image
           alt="Serbian language"
           src={FlagSerbia}
@@ -18,7 +19,7 @@ const LanguagePicker = () => {
           title="Serbian"
         ></Image>
       </Link>
-      <Link href='/' locale='en'>
+      <Link href='/' locale='en' className={locale =='en' ? styles.linkStyleActive : styles.linkStyle}>
         <Image
           alt="English language"
           src={FlagUk}
