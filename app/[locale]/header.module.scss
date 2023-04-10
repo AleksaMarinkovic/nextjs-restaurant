@@ -1,25 +1,59 @@
-$menu-nav-item-color: #ffffff;
-$menu-nav-item-color-hover: darken($menu-nav-item-color, 20);
+$menu-nav-item-color: #adadad;
+$menu-nav-item-color-hover: lighten($menu-nav-item-color, 30);
 
 .header {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 2fr 5fr 2fr;
     grid-template-rows: 4fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
         "leftSideMenu middleMenu rightSideMenu"
         "navBar navBar navBar";
-    background-color: black;
+    background-image: url('../../public/header-bg.webp');
     color: $menu-nav-item-color;
     font-size: x-large;
 }
 
 .leftSideMenu {
     display: flex;
-    font-size: medium;
     justify-content: center;
     align-items: center;
+    font-size: large;
     grid-area: leftSideMenu;
+}
+
+.openningHoursWrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem 0px;
+    grid-template-areas: 
+    "clockIcon oppeningHours"
+    "phoneIcon phone"; 
+}
+
+.clockIcon {
+    grid-area: clockIcon;
+    justify-self: center;
+    align-self: center;
+}
+
+.phoneIcon {
+    justify-self: center; 
+    align-self: center; 
+    grid-area: phoneIcon; 
+  }
+
+.oppeningHours {
+    grid-area: oppeningHours;
+    justify-self: start;
+    align-self: center;
+}
+
+.phone {
+    grid-area: phone;
+    justify-self: start;
+    align-self: center;
 }
 
 .middleMenu {

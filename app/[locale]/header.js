@@ -4,6 +4,8 @@ import Link from "next/link";
 import { settings } from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
+import { Merienda } from "next/font/google";
+import { BsClock, BsPhone } from "react-icons/bs";
 
 async function getHeaderInfo(locale) {
   const res = await fetch(
@@ -13,6 +15,11 @@ async function getHeaderInfo(locale) {
   const data = await res.json();
   return data.data;
 }
+
+const merienda = Merienda({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const dayOpenningHourInfo = (openningHours) => {
   const today = new Date().getDay();
@@ -38,39 +45,52 @@ export default async function Header({ locale }) {
   const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Homepage");
   return (
-    <header className={styles.header}>
-      <div className={styles.leftSideMenu}>
-        {t("openningHours")}
-        {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
-      </div>
-      <div className={styles.middleMenu}>
-        <div className={styles.logoWrapper}>
-          <Image
-            alt="Restaurant logo"
-            src={
-              settings.backendUrl +
-              headerInfo.attributes.logo.data.attributes.url
-            }
-            draggable={false}
-            width={250}
-            height={250}
-          ></Image>
+    <div className={merienda.className}>
+      <header className={styles.header}>
+        <div className={styles.leftSideMenu}>
+          <div className={styles.openningHoursWrapper}>
+            <div className={styles.clockIcon}>
+              <BsClock></BsClock>
+            </div>
+            <div className={styles.phoneIcon}>
+              <BsPhone></BsPhone>
+            </div>
+            <div className={styles.oppeningHours}>
+              {t("openningHours")} :{" "}
+              {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
+            </div>
+            <div className="phone">{headerInfo.attributes.contact.mobile}</div>
+          </div>
         </div>
-      </div>
-      <nav className={styles.nav}>
-        <Link href="/" className={styles.navItemNonActive}>
-          {t("home")}
-        </Link>
-        <Link href="/contact" className={styles.navItemNonActive}>
-          {t("contact")}
-        </Link>
-        <Link href="/menu" className={styles.navItemNonActive}>
-          {t("menu")}
-        </Link>
-      </nav>
-      <div className={styles.rightSideMenu}>
-        <LanguagePicker locale={locale}></LanguagePicker>
-      </div>
-    </header>
+        <div className={styles.middleMenu}>
+          <div className={styles.logoWrapper}>
+            <Image
+              alt="Restaurant logo"
+              src={
+                settings.backendUrl +
+                headerInfo.attributes.logo.data.attributes.url
+              }
+              draggable={false}
+              width={250}
+              height={250}
+            ></Image>
+          </div>
+        </div>
+        <nav className={styles.nav}>
+          <Link href="/" className={styles.navItemNonActive}>
+            {t("home")}
+          </Link>
+          <Link href="/contact" className={styles.navItemNonActive}>
+            {t("contact")}
+          </Link>
+          <Link href="/menu" className={styles.navItemNonActive}>
+            {t("menu")}
+          </Link>
+        </nav>
+        <div className={styles.rightSideMenu}>
+          <LanguagePicker locale={locale}></LanguagePicker>
+        </div>
+      </header>
+    </div>
   );
 }
