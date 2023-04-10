@@ -27,9 +27,9 @@ $menu-nav-item-color-hover: #f6d17a;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 1fr;
     gap: 1rem 0px;
-    grid-template-areas: 
-    "clockIcon oppeningHours"
-    "phoneIcon phone";
+    grid-template-areas:
+        "clockIcon oppeningHours"
+        "phoneIcon phone";
 }
 
 .clockIcon {
@@ -39,10 +39,10 @@ $menu-nav-item-color-hover: #f6d17a;
 }
 
 .phoneIcon {
-    justify-self: center; 
-    align-self: center; 
-    grid-area: phoneIcon; 
-  }
+    justify-self: center;
+    align-self: center;
+    grid-area: phoneIcon;
+}
 
 .oppeningHours {
     grid-area: oppeningHours;
@@ -78,6 +78,7 @@ $menu-nav-item-color-hover: #f6d17a;
     align-self: stretch;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 5rem;
     grid-area: navBar;
 }
@@ -95,10 +96,31 @@ $menu-nav-item-color-hover: #f6d17a;
     text-decoration: none;
     font-size: x-large;
     transition: color 0.5s;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 5px;
 }
 
 .navItemNonActive:hover {
     color: $menu-nav-item-color-hover;
+}
+
+.navItemNonActive::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $menu-nav-item-color-hover;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.navItemNonActive:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
 }
 
 .rightSideMenu {
