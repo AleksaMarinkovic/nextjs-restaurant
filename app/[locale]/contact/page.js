@@ -45,6 +45,7 @@ export default async function ContactPage({ params }) {
         <a href={contactData.socialMedia.facebook} target="_blank">
           Facebook
         </a>
+        <br/>
         <a href={contactData.socialMedia.tripAdvisor} target="_blank">
           Trip Advisor
         </a>
