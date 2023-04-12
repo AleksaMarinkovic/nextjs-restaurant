@@ -66,6 +66,7 @@ export default async function Header({ locale }) {
           <div className={styles.logoWrapper}>
             <Image
               alt="Restaurant logo"
+              priority
               src={
                 settings.backendUrl +
                 headerInfo.attributes.logo.data.attributes.url
