@@ -1,6 +1,6 @@
 import styles from "./header.module.scss";
 import Image from "next/image";
-import Link from "next/link";
+import {Link} from "next-intl";
 import settings from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
@@ -41,58 +41,63 @@ const dayOpenningHourInfo = (openningHours) => {
   }
 };
 
-export default async function Header({ locale }) {
+export default async function Header({locale}) {
   const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Homepage");
   return (
     <div className={styles.headerWrapper}>
       <div className={merienda.className}>
-      <header className={styles.header}>
-        <div className={styles.leftSideMenu}>
-          <div className={styles.openningHoursWrapper}>
-            <div className={styles.clockIcon}>
-              <BsClock></BsClock>
+        <header className={styles.header}>
+          <div className={styles.leftSideMenu}>
+            <div className={styles.openningHoursWrapper}>
+              <div className={styles.clockIcon}>
+                <BsClock></BsClock>
+              </div>
+              <div className={styles.phoneIcon}>
+                <BsPhone></BsPhone>
+              </div>
+              <div className={styles.oppeningHours}>
+                {t("openningHours")} :{" "}
+                {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
+              </div>
+              <div className={styles.phone}>
+                {headerInfo.attributes.contact.mobile}
+              </div>
             </div>
-            <div className={styles.phoneIcon}>
-              <BsPhone></BsPhone>
-            </div>
-            <div className={styles.oppeningHours}>
-              {t("openningHours")} :{" "}
-              {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
-            </div>
-            <div className={styles.phone}>{headerInfo.attributes.contact.mobile}</div>
           </div>
-        </div>
-        <div className={styles.middleMenu}>
-          <div className={styles.logoWrapper}>
-            <Image
-              alt="Restaurant logo"
-              priority
-              src={
-                settings.backendUrl +
-                headerInfo.attributes.logo.data.attributes.url
-              }
-              draggable={false}
-              width={294}
-              height={105}
-            ></Image>
+          <div className={styles.middleMenu}>
+            <div className={styles.logoWrapper}>
+              <Image
+                alt="Restaurant logo"
+                priority
+                src={
+                  settings.backendUrl +
+                  headerInfo.attributes.logo.data.attributes.url
+                }
+                draggable={false}
+                width={294}
+                height={105}
+              ></Image>
+            </div>
           </div>
-        </div>
-        <nav className={styles.nav}>
-          <Link href="/" className={styles.navItemNonActive}>
-            {t("home")}
-          </Link>
-          <Link href="/contact" className={styles.navItemNonActive}>
-            {t("contact")}
-          </Link>
-          <Link href="/menu" className={styles.navItemNonActive}>
-            {t("menu")}
-          </Link>
-        </nav>
-        <div className={styles.rightSideMenu}>
-          <LanguagePicker locale={locale}></LanguagePicker>
-        </div>
-      </header>
+          <nav className={styles.nav}>
+            <Link href="/" className={styles.navItemNonActive} locale={locale}>
+              {t("home")}
+            </Link>
+            <Link href="/contact" className={styles.navItemNonActive} locale={locale}>
+              {t("contact")}
+            </Link>
+            <Link href="/menu" className={styles.navItemNonActive} locale={locale}>
+              {t("menu")}
+            </Link>
+            <Link href="/gallery" className={styles.navItemNonActive} locale={locale}>
+              {t("gallery")}
+            </Link>
+          </nav>
+          <div className={styles.rightSideMenu}>
+            <LanguagePicker locale={locale}></LanguagePicker>
+          </div>
+        </header>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import styles from "./contact.module.scss";
+import styles from "./page.module.scss";
 import settings from "../settings";
 import { getTranslations } from "next-intl/server";
 
@@ -45,7 +45,7 @@ export default async function ContactPage({ params }) {
         <a href={contactData.socialMedia.facebook} target="_blank">
           Facebook
         </a>
-        <br/>
+        <br />
         <a href={contactData.socialMedia.tripAdvisor} target="_blank">
           Trip Advisor
         </a>

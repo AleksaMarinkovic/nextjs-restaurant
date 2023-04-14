@@ -3,7 +3,7 @@ import styles from "./introduction.module.scss";
 import settings from "./settings";
 import mainImage from "../../public/bar-long.webp";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
+import {Link} from "next-intl";
 
 async function getRestaurantInfo(locale) {
   const res = await fetch(
@@ -15,7 +15,8 @@ async function getRestaurantInfo(locale) {
 }
 
 export default async function Introduction({ params }) {
-  const restaurantData = await getRestaurantInfo(params.locale);
+  const locale = params.locale;
+  const restaurantData = await getRestaurantInfo(locale);
   const t = await getTranslations("Homepage");
   return (
     <div className={styles.wrapper}>
@@ -31,7 +32,7 @@ export default async function Introduction({ params }) {
         <div className={styles.textWrapper}>
           <h1 className={styles.header}>{restaurantData.name}</h1>
           <p className={styles.description}>{restaurantData.description}</p>
-          <Link href="/menu"  className={styles.mainButton}>{t("menu").toUpperCase()}</Link>
+          <Link href="/menu"  className={styles.mainButton} locale={locale}>{t("menu").toUpperCase()}</Link>
         </div>
       </div>
     </div>
