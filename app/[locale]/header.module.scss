@@ -1,5 +1,5 @@
-$menu-nav-item-color: #adadad;
-$menu-nav-item-color-hover: #f6d17a;
+$menu-nav-item-color: #5c5c5c;
+$menu-nav-item-color-hover: #000000;
 
 .header {
     display: grid;
@@ -9,9 +9,10 @@ $menu-nav-item-color-hover: #f6d17a;
     grid-template-areas:
         "leftSideMenu middleMenu rightSideMenu"
         "navBar navBar navBar";
-    background-image: url('../../public/header-bg.webp');
     color: $menu-nav-item-color;
     font-size: x-large;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $menu-nav-item-color;
 }
 
 .leftSideMenu {
@@ -71,6 +72,7 @@ $menu-nav-item-color-hover: #f6d17a;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
 }
 
 .nav {
@@ -98,7 +100,7 @@ $menu-nav-item-color-hover: #f6d17a;
     transition: color 0.5s;
     display: inline-block;
     position: relative;
-    padding-bottom: 5px;
+    padding: 5px 15px 5px 15px;
 }
 
 .navItemNonActive:hover {
@@ -125,7 +127,9 @@ $menu-nav-item-color-hover: #f6d17a;
 
 .rightSideMenu {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
+    padding-right: 2rem;
     grid-area: rightSideMenu;
 }

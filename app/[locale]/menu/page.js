@@ -1,4 +1,4 @@
-import { settings } from "../settings";
+import settings from "../settings";
 import { getTranslations } from "next-intl/server";
 
 async function getMenuItems(locale) {

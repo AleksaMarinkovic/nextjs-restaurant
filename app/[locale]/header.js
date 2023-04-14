@@ -1,7 +1,7 @@
 import styles from "./header.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { settings } from "./settings";
+import settings from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
 import { Merienda } from "next/font/google";
@@ -45,7 +45,8 @@ export default async function Header({ locale }) {
   const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Homepage");
   return (
-    <div className={merienda.className}>
+    <div className={styles.headerWrapper}>
+      <div className={merienda.className}>
       <header className={styles.header}>
         <div className={styles.leftSideMenu}>
           <div className={styles.openningHoursWrapper}>
@@ -72,8 +73,8 @@ export default async function Header({ locale }) {
                 headerInfo.attributes.logo.data.attributes.url
               }
               draggable={false}
-              width={250}
-              height={250}
+              width={294}
+              height={105}
             ></Image>
           </div>
         </div>
@@ -92,6 +93,7 @@ export default async function Header({ locale }) {
           <LanguagePicker locale={locale}></LanguagePicker>
         </div>
       </header>
+      </div>
     </div>
   );
 }

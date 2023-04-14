@@ -1,8 +1,8 @@
 import "./globals.scss";
 import Header from "./header";
-import {useLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {Open_Sans} from 'next/font/google';
+import { useLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { Open_Sans } from "next/font/google";
 
 export const metadata = {
   title: "Pancetta Concept Bar Novi Sad | Hrana, piće, svirke...",
@@ -11,21 +11,21 @@ export const metadata = {
 };
 
 const openSans = Open_Sans({
-  subsets: ['latin'],
-  display: 'swap'
-})
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function LocaleLayout({ children, params }) {
   const locale = useLocale();
 
-  if(params.locale !== locale){
+  if (params.locale !== locale) {
     notFound();
   }
 
   return (
     <html lang={locale} className={openSans.className}>
       <body>
-      <Header locale={params.locale}></Header>
+        <Header locale={params.locale}></Header>
         <main>{children}</main>
       </body>
     </html>

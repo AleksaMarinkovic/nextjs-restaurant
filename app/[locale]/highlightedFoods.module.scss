@@ -1,0 +1,42 @@
+$restaurant-yellow: #f6d17a60;
+
+.wrapper{
+    padding-bottom: 2rem;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.table{
+    background-image: url('../../public/darkbackground.webp');
+    color: white;
+    border-top: 1px solid $restaurant-yellow;
+    padding: 4rem 0 2rem 0;
+    margin: 0 0 0 0;
+}
+
+.foodCard{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.foodCardName{
+    margin-top: 2rem;
+    color: wheat;
+    font-size: x-large;
+}
+

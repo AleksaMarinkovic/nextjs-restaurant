@@ -1,5 +1,5 @@
 import styles from "./contact.module.scss";
-import { settings } from "../settings";
+import settings from "../settings";
 import { getTranslations } from "next-intl/server";
 
 async function getContactData(locale) {
