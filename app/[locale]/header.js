@@ -1,11 +1,11 @@
 import styles from "./header.module.scss";
 import Image from "next/image";
-import {Link} from "next-intl";
+import { Link } from "next-intl";
 import settings from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
 import { Merienda } from "next/font/google";
-import { BsClock, BsPhone } from "react-icons/bs";
+import NavItem from "./navItem";
 
 async function getHeaderInfo(locale) {
   const res = await fetch(
@@ -21,82 +21,35 @@ const merienda = Merienda({
   display: "swap",
 });
 
-const dayOpenningHourInfo = (openningHours) => {
-  const today = new Date().getDay();
-  switch (today) {
-    case 0:
-      return openningHours.sunday;
-    case 1:
-      return openningHours.monday;
-    case 2:
-      return openningHours.tuesday;
-    case 3:
-      return openningHours.wednesday;
-    case 4:
-      return openningHours.thursday;
-    case 5:
-      return openningHours.friday;
-    case 6:
-      return openningHours.saturday;
-  }
-};
-
-export default async function Header({locale}) {
+export default async function Header({ locale }) {
   const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Homepage");
   return (
     <div className={styles.headerWrapper}>
       <div className={merienda.className}>
-        <header className={styles.header}>
-          <div className={styles.leftSideMenu}>
-            <div className={styles.openningHoursWrapper}>
-              <div className={styles.clockIcon}>
-                <BsClock></BsClock>
-              </div>
-              <div className={styles.phoneIcon}>
-                <BsPhone></BsPhone>
-              </div>
-              <div className={styles.oppeningHours}>
-                {t("openningHours")} :{" "}
-                {dayOpenningHourInfo(headerInfo.attributes.openningHours)}
-              </div>
-              <div className={styles.phone}>
-                {headerInfo.attributes.contact.mobile}
-              </div>
-            </div>
-          </div>
-          <div className={styles.middleMenu}>
-            <div className={styles.logoWrapper}>
-              <Image
-                alt="Restaurant logo"
-                priority
-                src={
-                  settings.backendUrl +
-                  headerInfo.attributes.logo.data.attributes.url
-                }
-                draggable={false}
-                width={294}
-                height={105}
-              ></Image>
-            </div>
+        <header className={styles.headerNew}>
+          <div className={styles.logoWrapper}>
+            <Image
+              alt="Restaurant logo"
+              priority
+              src={
+                settings.backendUrl +
+                headerInfo.attributes.logo.data.attributes.url
+              }
+              draggable={false}
+              width={200}
+              height={65}
+            ></Image>
           </div>
           <nav className={styles.nav}>
-            <Link href="/" className={styles.navItemNonActive} locale={locale}>
-              {t("home")}
-            </Link>
-            <Link href="/contact" className={styles.navItemNonActive} locale={locale}>
-              {t("contact")}
-            </Link>
-            <Link href="/menu" className={styles.navItemNonActive} locale={locale}>
-              {t("menu")}
-            </Link>
-            <Link href="/gallery" className={styles.navItemNonActive} locale={locale}>
-              {t("gallery")}
-            </Link>
+            <NavItem href="/" text={t("home")} locale={locale}/>
+            <NavItem href="/contact" text={t("contact")} locale={locale}/>
+            <NavItem href="/menu" text={t("menu")} locale={locale}/>
+            <NavItem href="/gallery" text={t("gallery")} locale={locale}/>
+            <div className={styles.rightSideMenu}>
+              <LanguagePicker locale={locale}></LanguagePicker>
+            </div>
           </nav>
-          <div className={styles.rightSideMenu}>
-            <LanguagePicker locale={locale}></LanguagePicker>
-          </div>
         </header>
       </div>
     </div>

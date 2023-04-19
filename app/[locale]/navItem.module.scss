@@ -1,0 +1,64 @@
+$menu-nav-item-color: #5c5c5c;
+$menu-nav-item-color-hover: #000000;
+$menu-nav-item-active-color: #d8bfa0;
+$menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
+
+.navItemActive {
+    color: $menu-nav-item-active-color;
+    text-decoration: none;
+    font-size: x-large;
+    transition: color 0.5s;
+    display: inline-block;
+    position: relative;
+    padding: 5px 15px 5px 15px;
+}
+
+.navItemActive:hover {
+    color: $menu-nav-item-active-color-hover;
+}
+
+.navItemActive::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $menu-nav-item-active-color-hover;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+    transform: scaleX(1);
+}
+
+.navItemNonActive {
+    color: $menu-nav-item-color;
+    text-decoration: none;
+    font-size: x-large;
+    transition: color 0.5s;
+    display: inline-block;
+    position: relative;
+    padding: 5px 15px 5px 15px;
+}
+
+.navItemNonActive:hover {
+    color: $menu-nav-item-color-hover;
+}
+
+.navItemNonActive::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $menu-nav-item-color-hover;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.navItemNonActive:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}

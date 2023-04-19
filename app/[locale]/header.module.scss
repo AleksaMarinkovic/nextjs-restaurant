@@ -1,69 +1,16 @@
-$menu-nav-item-color: #5c5c5c;
-$menu-nav-item-color-hover: #000000;
+.headerWrapper {
+    position: sticky;
+    top: 0;
+    background-color: rgb(245, 245, 245, 0.95);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
 
-.header {
-    display: grid;
-    grid-template-columns: 2fr 5fr 2fr;
-    grid-template-rows: 4fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        "leftSideMenu middleMenu rightSideMenu"
-        "navBar navBar navBar";
-    color: $menu-nav-item-color;
+.headerNew {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: x-large;
-    padding-bottom: 2rem;
-}
 
-.leftSideMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    grid-area: leftSideMenu;
-}
-
-.openningHoursWrapper {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem 0px;
-    grid-template-areas:
-        "clockIcon oppeningHours"
-        "phoneIcon phone";
-}
-
-.clockIcon {
-    grid-area: clockIcon;
-    justify-self: center;
-    align-self: center;
-}
-
-.phoneIcon {
-    justify-self: center;
-    align-self: center;
-    grid-area: phoneIcon;
-}
-
-.oppeningHours {
-    grid-area: oppeningHours;
-    justify-self: start;
-    align-self: center;
-}
-
-.phone {
-    grid-area: phone;
-    font-size: medium;
-    justify-self: start;
-    align-self: center;
-}
-
-.middleMenu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    grid-area: middleMenu;
 }
 
 .logoWrapper {
@@ -80,49 +27,10 @@ $menu-nav-item-color-hover: #000000;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
-    grid-area: navBar;
+    gap: 3rem;
 }
 
-.navItemActive {
-    font-size: x-large;
-}
 
-.navItemActive:hover {
-    color: $menu-nav-item-color-hover;
-}
-
-.navItemNonActive {
-    color: $menu-nav-item-color;
-    text-decoration: none;
-    font-size: x-large;
-    transition: color 0.5s;
-    display: inline-block;
-    position: relative;
-    padding: 5px 15px 5px 15px;
-}
-
-.navItemNonActive:hover {
-    color: $menu-nav-item-color-hover;
-}
-
-.navItemNonActive::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: $menu-nav-item-color-hover;
-    transform-origin: bottom center;
-    transition: transform 0.25s ease-out;
-}
-
-.navItemNonActive:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom center;
-}
 
 .rightSideMenu {
     display: flex;
@@ -130,5 +38,4 @@ $menu-nav-item-color-hover: #000000;
     justify-content: flex-end;
     align-items: center;
     padding-right: 2rem;
-    grid-area: rightSideMenu;
 }
