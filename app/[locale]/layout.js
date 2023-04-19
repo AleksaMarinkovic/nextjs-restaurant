@@ -2,7 +2,7 @@ import "./globals.scss";
 import Header from "./header";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Tangerine } from "next/font/google";
 
 export const metadata = {
   title: "Pancetta Concept Bar Novi Sad | Hrana, piće, svirke...",
@@ -13,6 +13,12 @@ export const metadata = {
 const openSans = Open_Sans({
   subsets: ["latin"],
   display: "swap",
+});
+
+const tangerine = Tangerine({
+  subsets: ["latin"],
+  display: "swap",
+  weight: '400'
 });
 
 export default function LocaleLayout({ children, params }) {

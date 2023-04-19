@@ -27,11 +27,12 @@ export default async function Introduction({ params }) {
             alt="Bar inside of Pancetta"
             width={455}
             height={682}
+            style={{display:'block'}}
           ></Image>
         </div>
         <div className={styles.textWrapper}>
-          <h1 className={styles.header}>{restaurantData.name}</h1>
-          <p className={styles.description}>{restaurantData.description}</p>
+          <h1>{restaurantData.name}</h1>
+          <p>{restaurantData.description}</p>
           <Link href="/menu"  className={styles.mainButton} locale={locale}>{t("menu").toUpperCase()}</Link>
         </div>
       </div>

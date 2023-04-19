@@ -1,17 +1,19 @@
 $restaurant-yellow: #f6d17a60;
 $text-color: #f5f5f5;
 $button-color: #d8bfa0;
-$offset: 60px;
+$offset: 80px;
 
 .wrapper {
     color: $text-color;
     background-image: url('../../public/darkbackground.webp');
     margin-bottom: $offset;
+    border-top: 2px solid darken(#d8bfa0, 5);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .imageWrapper{
     margin-bottom: -$offset;
-}
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
 
 .content {
     display: flex;
@@ -26,18 +28,9 @@ $offset: 60px;
 .textWrapper{
     display: flex;
     flex-flow: column wrap;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
-}
-
-.header {
-    font-size: var(--fs-m);
-}
-
-.description {
-    margin-bottom: 2rem;
-    font-size: var(--fs-s);
 }
 
 .mainButton{
@@ -56,5 +49,18 @@ $offset: 60px;
     background-color: $button-color;
     border-color: black;
     color: black;
+}
 
+@media screen and (max-width: 768px) {
+    .content {
+        flex-flow: column;
+        padding: 2rem 0 2rem 0;
+    }
+    .imageWrapper{
+        margin-bottom: 0;
+    }
+    .textWrapper{
+        padding: 2rem 0 2rem 0;
+        gap: 3rem;
+    }
 }
