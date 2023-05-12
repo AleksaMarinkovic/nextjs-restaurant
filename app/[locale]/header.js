@@ -4,7 +4,7 @@ import { Link } from "next-intl";
 import settings from "./settings";
 import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
-import { Merienda } from "next/font/google";
+import { Baskervville } from "next/font/google";
 import NavItem from "./navItem";
 
 async function getHeaderInfo(locale) {
@@ -16,9 +16,10 @@ async function getHeaderInfo(locale) {
   return data.data;
 }
 
-const merienda = Merienda({
+const bskervville = Baskervville({
   subsets: ["latin"],
   display: "swap",
+  weight: '400'
 });
 
 export default async function Header({ locale }) {
@@ -26,7 +27,7 @@ export default async function Header({ locale }) {
   const t = await getTranslations("Homepage");
   return (
     <div className={styles.headerWrapper}>
-      <div className={merienda.className}>
+      <div className={bskervville.className}>
         <header className={styles.headerNew}>
           <div className={styles.logoWrapper}>
             <Image

@@ -8,7 +8,8 @@ export default async function BlogPage({ params }) {
     const t = await getTranslations('Blog');
     const translations = {
         load : t('load'),
-        more: t('more')
+        more: t('more'),
+        close: t('close')
     }
   return (
     <div>

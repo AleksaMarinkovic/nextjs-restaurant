@@ -25,6 +25,7 @@
   },
   "Blog":{    
     "more": "Read more",
-    "load": "Older news"
+    "load": "Older news",
+    "close": "Close"
   }
 }

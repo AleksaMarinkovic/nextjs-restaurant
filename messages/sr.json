@@ -25,6 +25,7 @@
   },
   "Blog":{
     "more": "Pročitaj više",
-    "load": "Starije vesti"
+    "load": "Starije vesti",
+    "close": "Zatvori"
   }
 }

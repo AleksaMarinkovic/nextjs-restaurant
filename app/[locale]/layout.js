@@ -2,7 +2,7 @@ import "./globals.scss";
 import Header from "./header";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { Open_Sans, Tangerine } from "next/font/google";
+import { Quicksand } from "next/font/google";
 
 export const metadata = {
   title: "Pancetta Concept Bar Novi Sad | Hrana, piće, svirke...",
@@ -10,15 +10,10 @@ export const metadata = {
     "Pancetta Concept Bar - savršen doručak subotom ujutru uz kafu, romantična večera sa partnerom ili izlasci uveče sa svojim prijateljima.",
 };
 
-const openSans = Open_Sans({
+const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
-});
-
-const tangerine = Tangerine({
-  subsets: ["latin"],
-  display: "swap",
-  weight: '400'
+  weight: '300'
 });
 
 export default function LocaleLayout({ children, params }) {
@@ -29,7 +24,7 @@ export default function LocaleLayout({ children, params }) {
   }
 
   return (
-    <html lang={locale} className={openSans.className}>
+    <html lang={locale} className={quicksand.className}>
       <body>
         <Header locale={params.locale}></Header>
         <main>{children}</main>

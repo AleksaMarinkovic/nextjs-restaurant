@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "./blogPosts.module.scss";
 import Image from "next/image";
 import settings from "../settings";
+import ReactModal from "react-modal";
+import Card from "./card";
 
 const BlogPosts = (params) => {
   const [pageSize, setPageSize] = useState(settings.blogPagination);
@@ -12,6 +14,8 @@ const BlogPosts = (params) => {
   const [translations, setTranslations] = useState(params.translations);
   const [loadedBlogPosts, setLoadedBlogPosts] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [post, setPost] = useState();
 
   useEffect(() => {
     async function getBlogsNextPage(locale, pageSize) {
@@ -29,50 +33,25 @@ const BlogPosts = (params) => {
     getBlogsNextPage(locale, pageSize);
   }, [pageSize, locale]);
 
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
       {loadedBlogPosts ? (
         <div className={styles.container}>
           {blogPosts.map((post) => {
             return (
-              <div key={post.id} className={styles.cardWrapper}>
-                <div className={styles.card}>
-                  <Image
-                    alt={post.attributes.thumbnail.data.attributes.name}
-                    src={
-                      settings.backendUrl +
-                      post.attributes.thumbnail.data.attributes.url
-                    }
-                    className={styles.image}
-                    priority
-                    width={300}
-                    height={300}
-                  ></Image>
-                  <div className={styles.content}>
-                    <h1 className={styles.title}>{post.attributes.title}</h1>
-                    <p className={styles.desc}>{post.attributes.description}</p>
-                    <a href="#" className={styles.action}>
-                      {translations.more}
-                      <span aria-hidden="true">→</span>
-                    </a>
-                    <div className={styles.tags}>
-                      {post.attributes.categories.data.map((category) => {
-                        return (
-                          <div key={category.id}>
-                            <a href="#" className={styles.tag}>
-                              #{category.attributes.name.replace(/\s/g, "")}
-                            </a>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Card key={post.id} locale={locale} post={post} translations={translations}></Card>
             );
           })}
           {!isEnd && (
-            <a
+            <button
               className={styles.action}
               style={{ height: "30px", alignSelf: "center" }}
               onClick={() => {
@@ -81,7 +60,7 @@ const BlogPosts = (params) => {
             >
               {translations.load}
               <span aria-hidden="true">→</span>
-            </a>
+            </button>
           )}
         </div>
       ) : (
