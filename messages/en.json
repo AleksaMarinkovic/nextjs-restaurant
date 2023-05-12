@@ -5,6 +5,7 @@
     "contact": "Contact",
     "menu": "Menu",
     "gallery": "Gallery",
+    "blog": "Blog",
     "chooseLanguage": "Choose language"
   },
   "Menu": {
@@ -21,5 +22,9 @@
     "openningHours": "Working hours",
     "socialMedia": "Visit our social media",
     "location": "Where can you find us?"
+  },
+  "Blog":{    
+    "more": "Read more",
+    "load": "Older news"
   }
 }

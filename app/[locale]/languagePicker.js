@@ -17,8 +17,8 @@ const LanguagePicker = ({locale}) => {
         <Image
           alt="Serbian language"
           src={FlagSerbia}
-          width={50}
-          height={30}
+          width={35}
+          height={20}
           className={styles.image}
           title="Serbian"
         ></Image>
@@ -27,8 +27,8 @@ const LanguagePicker = ({locale}) => {
         <Image
           alt="English language"
           src={FlagUk}
-          width={50}
-          height={30}
+          width={35}
+          height={20}
           className={styles.image}
           title="English"
         ></Image>

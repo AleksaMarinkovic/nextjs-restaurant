@@ -5,6 +5,7 @@
     "contact": "Kontakt",
     "menu": "Jelovnik",
     "gallery": "Galerija",
+    "blog": "Blog",
     "chooseLanguage": "Izaberite jezik"
   },
   "Menu": {
@@ -21,5 +22,9 @@
     "openningHours": "Radno vreme",
     "socialMedia": "Posetite naše društvene mreže",
     "location": "Gde se nalazimo?"
+  },
+  "Blog":{
+    "more": "Pročitaj više",
+    "load": "Starije vesti"
   }
 }

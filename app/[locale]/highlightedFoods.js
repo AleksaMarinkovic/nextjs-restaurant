@@ -18,7 +18,7 @@ const merienda = Merienda({
 
 const HighlightedFoods = ({ params }) => {
   const [highlightedFoodsData, setHighlightedFoodsData] = useState();
-  const [loadedHighlightedFoodsInfo, setHighlightedFoodsInfo] = useState(false);
+  const [loadedHighlightedFoodsInfo, setLoadedHighlightedFoodsInfo] = useState(false);
 
   useEffect(() => {
     async function getHighlightedFoodsData(locale) {
@@ -28,7 +28,7 @@ const HighlightedFoods = ({ params }) => {
       );
       const data = await res.json();
       setHighlightedFoodsData(data.data);
-      setHighlightedFoodsInfo(true);
+      setLoadedHighlightedFoodsInfo(true);
     }
     getHighlightedFoodsData(params.locale);
   }, []);
