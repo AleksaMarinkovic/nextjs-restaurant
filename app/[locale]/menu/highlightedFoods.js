@@ -2,7 +2,7 @@
 
 import { Navigation, Autoplay } from "swiper";
 import styles from "./highlightedFoods.module.scss";
-import settings from "./settings";
+import settings from "../settings";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useState, useEffect } from "react";

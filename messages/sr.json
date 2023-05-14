@@ -26,6 +26,8 @@
   "Blog":{
     "more": "Pročitaj više",
     "load": "Starije vesti",
-    "close": "Zatvori"
+    "close": "Zatvori",
+    "tags": "Izaberite tip",
+    "all": "Oba"
   }
 }

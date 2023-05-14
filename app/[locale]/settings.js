@@ -2,6 +2,6 @@
 const settings = {
   backendUrl: "https://strapi.aleksa-marinkovic.me",
   revalidateTime: 60,
-  blogPagination: 2,
+  blogPagination: 4,
 };
 export default settings;

@@ -26,6 +26,8 @@
   "Blog":{    
     "more": "Read more",
     "load": "Older news",
-    "close": "Close"
+    "close": "Close",
+    "tags": "Choose type",
+    "all": "Both"
   }
 }

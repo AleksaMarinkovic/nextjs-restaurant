@@ -1,6 +1,6 @@
 import settings from "../settings";
 import { getTranslations } from "next-intl/server";
-
+import HighlightedFoods from "./highlightedFoods";
 async function getMenuItems(locale) {
   const res = await fetch(
     `${settings.backendUrl}/api/foods?sort[0]=price&sort[1]=description&pagination[page]=1&pagination[pageSize]=200&locale=${locale}`,
@@ -16,6 +16,8 @@ export default async function MenuPage({ params }) {
   return (
     <div>
       <h1>{t("title")}</h1>
+
+      <HighlightedFoods params={params}></HighlightedFoods>
       {menuItems?.map((menuItem) => {
         return (
           <div key={menuItem.id}>

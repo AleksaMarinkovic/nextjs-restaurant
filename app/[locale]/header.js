@@ -29,7 +29,7 @@ export default async function Header({ locale }) {
     <div className={styles.headerWrapper}>
       <div className={bskervville.className}>
         <header className={styles.headerNew}>
-          <div className={styles.logoWrapper}>
+          <Link className={styles.logoWrapper} href="/" locale={locale}>
             <Image
               alt="Restaurant logo"
               priority
@@ -41,7 +41,7 @@ export default async function Header({ locale }) {
               width={200}
               height={65}
             ></Image>
-          </div>
+          </Link>
           <nav className={styles.nav}>
             <NavItem href="/" text={t("home")} locale={locale}/>
             <NavItem href="/menu" text={t("menu")} locale={locale}/>

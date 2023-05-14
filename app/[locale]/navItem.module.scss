@@ -1,6 +1,6 @@
 $menu-nav-item-color: #5c5c5c;
 $menu-nav-item-color-hover: #000000;
-$menu-nav-item-active-color: #d8bfa0;
+$menu-nav-item-active-color: var(--secondary-color);;
 $menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
 
 .navItemActive {

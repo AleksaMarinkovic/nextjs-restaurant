@@ -9,7 +9,9 @@ export default async function BlogPage({ params }) {
     const translations = {
         load : t('load'),
         more: t('more'),
-        close: t('close')
+        close: t('close'),
+        tags: t('tags'),
+        all: t('all')
     }
   return (
     <div>

@@ -9,7 +9,7 @@ const NavItem = ({ href, text, locale, translations}) => {
   // line below is needed for it to be prerendered on the server (usePathname returns null on the server)
   const newPathname = pathname === null ? "/" : pathname;
   return (
-    <Link href={href} className={pathname === href ? styles.navItemActive : styles.navItemNonActive} locale={locale} translations={translations}>
+    <Link href={href} className={pathname === href ? styles.navItemActive : styles.navItemNonActive} locale={locale}>
       {text}
     </Link>
   );

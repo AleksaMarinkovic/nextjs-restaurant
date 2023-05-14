@@ -5,29 +5,37 @@ import styles from "./card.module.scss";
 import Image from "next/image";
 import ReactModal from "react-modal";
 import settings from "../settings";
+import { motion } from "framer-motion";
+import background from "../../../public/darkbackground.webp";
 
 const modalSettings = {
   overlay: {
     position: "fixed",
     top: 0,
-    left: 0,
-    right: 0,
+    left: -200,
+    right: -200,
     bottom: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
+    zIndex: 99
   },
   content: {
     position: "absolute",
-    top: "5vh",
+    top: "10vh",
     left: "30vw",
     right: "30vw",
-    bottom: "5vh",
-    background: "#f5f5f5",
+    bottom: "10vh",
+    background: "#f5f5f4",
     overflow: "auto",
     WebkitOverflowScrolling: "touch",
     borderRadius: "0.5rem",
     outline: "none",
-    padding: "2rem 5rem 2rem 5rem",
+    padding: "0 5rem 0 5rem",
     boxShadow: "0 0 50px 1px #333",
+    display: "flex",
+    flexFlow: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 99
   },
 };
 
@@ -52,18 +60,24 @@ const Card = (params) => {
   return (
     <div className={styles.cardWrapper}>
       {post && translations && (
-        <div className={styles.card}>
+        <motion.div
+          className={styles.card}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <Image
             alt={post.attributes.thumbnail.data.attributes.name}
             src={
               settings.backendUrl +
               post.attributes.thumbnail.data.attributes.url
             }
+            onClick={handleOpenModal}
             className={styles.image}
             priority
             width={300}
             height={300}
           ></Image>
+
           <div className={styles.content}>
             <h1 className={styles.title}>{post.attributes.title}</h1>
             <p className={styles.desc}>{post.attributes.description}</p>
@@ -72,28 +86,31 @@ const Card = (params) => {
               <span aria-hidden="true">→</span>
             </button>
             <ReactModal
+              closeTimeoutMS={500}
               isOpen={showModal}
               style={modalSettings}
               onRequestClose={handleCloseModal}
               shouldCloseOnOverlayClick={true}
             >
               <div className={styles.modalContent}>
-                <Image
-                  alt={post.attributes.thumbnail.data.attributes.name}
-                  src={
-                    settings.backendUrl +
-                    post.attributes.thumbnail.data.attributes.url
-                  }
-                  className={styles.image}
-                  priority
-                  width={500}
-                  height={500}
-                ></Image>
                 <h1 className={styles.modalTitle}>{post.attributes.title}</h1>
-                <p className={styles.modalDesc}>
-                  {post.attributes.description}
-                </p>
-                <button onClick={handleCloseModal} className={styles.action}>
+                <div className={styles.imageAndDesc}>
+                  <Image
+                    alt={post.attributes.thumbnail.data.attributes.name}
+                    src={
+                      settings.backendUrl +
+                      post.attributes.thumbnail.data.attributes.url
+                    }
+                    priority
+                    width={500}
+                    height={500}
+                  ></Image>
+                  <p className={styles.modalDesc}>
+                    {post.attributes.description}
+                  </p>
+                </div>
+
+                <button onClick={handleCloseModal} className={styles.actionModal}>
                   {translations.close}
                 </button>
               </div>
@@ -110,7 +127,7 @@ const Card = (params) => {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );
