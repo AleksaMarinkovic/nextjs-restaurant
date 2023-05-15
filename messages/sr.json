@@ -6,7 +6,10 @@
     "menu": "Jelovnik",
     "gallery": "Galerija",
     "blog": "Blog",
-    "chooseLanguage": "Izaberite jezik"
+    "chooseLanguage": "Izaberite jezik",
+    "workingHours": "Otvoreno danas",
+    "address": "Gde nas možete pronaći",
+    "phone": "Kontaktirajte nas"
   },
   "Menu": {
     "title": "Stavke sa jelovnika"

@@ -6,7 +6,10 @@
     "menu": "Menu",
     "gallery": "Gallery",
     "blog": "Blog",
-    "chooseLanguage": "Choose language"
+    "chooseLanguage": "Choose language",
+    "workingHours": "Open today",
+    "address": "Where can you find us",
+    "phone": "Contact us"
   },
   "Menu": {
     "title": "Menu items"
