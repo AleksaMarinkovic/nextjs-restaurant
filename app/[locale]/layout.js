@@ -1,8 +1,10 @@
 import "./globals.scss";
+import styles from './layout.module.scss'
 import Header from "./header";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { Quicksand } from "next/font/google";
+import Footer from "./footer";
 
 export const metadata = {
   title: "Pancetta Concept Bar Novi Sad | Hrana, piće, svirke...",
@@ -13,7 +15,7 @@ export const metadata = {
 const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
-  weight: '300'
+  weight: "300",
 });
 
 export default function LocaleLayout({ children, params }) {
@@ -26,8 +28,11 @@ export default function LocaleLayout({ children, params }) {
   return (
     <html lang={locale} className={quicksand.className}>
       <body>
-        <Header locale={params.locale}></Header>
-        <main>{children}</main>
+        <div className={styles.container}>
+          <Header locale={params.locale}></Header>
+          <main>{children}</main>
+          <Footer locale={params.locale}></Footer>
+        </div>
       </body>
     </html>
   );

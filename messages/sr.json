@@ -32,5 +32,11 @@
     "close": "Zatvori",
     "tags": "Izaberite tip",
     "all": "Oba"
+  },
+  "Footer": {
+    "contact": "Kontakt",
+    "write":"Pišite nam",
+    "address": "Adresa",
+    "follow": "Pratite nas"
   }
 }

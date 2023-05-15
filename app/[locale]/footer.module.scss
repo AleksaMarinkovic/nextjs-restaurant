@@ -1,0 +1,35 @@
+.container {
+    margin-top: auto;
+}
+
+.sectionOne {
+    background-color: #ebe5d7;
+    min-height: 250px;
+    color: #4b4b4b;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sectionTwo {
+    min-height: 50px;
+    background-color: #2e2e2e;
+    display: flex;
+    flex-flow: row wrap;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footerColumn{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footerColumnHeader{
+    margin-bottom: 1rem;
+}

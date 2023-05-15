@@ -14,7 +14,7 @@
   "Menu": {
     "title": "Menu items"
   },
-  "Contact":{
+  "Contact": {
     "monday": "Monday",
     "tuesday": "Tuesday",
     "wednesday": "Wednesday",
@@ -26,11 +26,17 @@
     "socialMedia": "Visit our social media",
     "location": "Where can you find us?"
   },
-  "Blog":{    
+  "Blog": {
     "more": "Read more",
     "load": "Older news",
     "close": "Close",
     "tags": "Choose type",
     "all": "Both"
+  },
+  "Footer": {
+    "contact": "Contact",
+    "write": "Reach out",
+    "address": "Our address",
+    "follow": "Follow our social media"
   }
 }
