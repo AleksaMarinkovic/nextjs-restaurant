@@ -16,7 +16,7 @@ async function getHeaderInfo(locale) {
   return data.data;
 }
 
-const bskervville = Baskervville({
+const baskervville = Baskervville({
   subsets: ["latin"],
   display: "swap",
   weight: '400'
@@ -27,8 +27,8 @@ export default async function Header({ locale }) {
   const t = await getTranslations("Homepage");
   return (
     <div className={styles.headerWrapper}>
-      <div className={bskervville.className}>
-        <header className={styles.headerNew}>
+      <div className={baskervville.className}>
+        <header className={styles.header}>
           <Link className={styles.logoWrapper} href="/" locale={locale}>
             <Image
               alt="Restaurant logo"

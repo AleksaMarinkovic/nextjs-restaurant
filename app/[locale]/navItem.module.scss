@@ -6,7 +6,7 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
 .navItemActive {
     color: $menu-nav-item-active-color;
     text-decoration: none;
-    font-size: x-large;
+    font-size: var(--fs-header);
     transition: color 0.5s;
     display: inline-block;
     position: relative;
@@ -34,7 +34,7 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
 .navItemNonActive {
     color: $menu-nav-item-color;
     text-decoration: none;
-    font-size: x-large;
+    font-size: var(--fs-header);
     transition: color 0.5s;
     display: inline-block;
     position: relative;
