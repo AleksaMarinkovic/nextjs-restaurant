@@ -12,7 +12,9 @@
     "phone": "Contact us"
   },
   "Menu": {
-    "title": "Menu items"
+    "title": "- Menu items -",
+    "food": "Food",
+    "drink": "Drink"
   },
   "Contact": {
     "monday": "Monday",

@@ -12,7 +12,9 @@
     "phone": "Kontaktirajte nas"
   },
   "Menu": {
-    "title": "Stavke sa jelovnika"
+    "title": "- Stavke sa jelovnika -",
+    "food": "Hrana",
+    "drink": "Piće"
   },
   "Contact": {
     "monday": "Ponedeljak",
@@ -26,7 +28,7 @@
     "socialMedia": "Posetite naše društvene mreže",
     "location": "Gde se nalazimo?"
   },
-  "Blog":{
+  "Blog": {
     "more": "Pročitaj više",
     "load": "Starije vesti",
     "close": "Zatvori",
@@ -35,7 +37,7 @@
   },
   "Footer": {
     "contact": "Kontakt",
-    "write":"Pišite nam",
+    "write": "Pišite nam",
     "address": "Adresa",
     "follow": "Pratite nas"
   }

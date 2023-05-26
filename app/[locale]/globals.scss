@@ -1,5 +1,7 @@
 :root {
+  // min value, rate of growth, max value
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
+  --fs-l: clamp(2rem, 1vw + 1.5rem, 7rem);
   --fs-m: clamp(1rem, 1vw + 1rem, 3rem);
   --fs-ms: clamp(1rem, 0.8vw + 0.5rem, 2rem);
   --fs-header: clamp(1rem, 0.8vw + 0.7rem, 1.8rem);

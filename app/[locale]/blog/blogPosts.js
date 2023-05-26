@@ -52,7 +52,6 @@ const BlogPosts = (params) => {
       }else{
         setIsEnd(false);
       }
-      console.log(filter);
     }
     getBlogsNextPage(filter.locale, filter.pageSize);
   }, [filter]);

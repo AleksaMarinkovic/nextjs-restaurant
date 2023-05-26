@@ -34,10 +34,6 @@ $offset: 120px;
         "image intro intro";
 }
 
-.intro {}
-
-.image {}
-
 .info {
     grid-area: info;
     display: flex;
@@ -55,8 +51,6 @@ $offset: 120px;
     align-items: center;
     gap: 0.5rem;
 }
-
-.infoHeader {}
 
 .imageWrapper {
     margin-bottom: -$offset;
