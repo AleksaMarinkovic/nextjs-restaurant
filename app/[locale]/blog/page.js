@@ -1,6 +1,4 @@
-import settings from "../settings";
 import styles from "./page.module.scss";
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import BlogPosts from "./blogPosts";
 
@@ -14,8 +12,8 @@ export default async function BlogPage({ params }) {
         all: t('all')
     }
   return (
-    <div>
-      <h1>BLOG:</h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.header}>{t('blog')}</h1>
       <BlogPosts locale={params.locale} translations={translations}></BlogPosts>
     </div>
   );

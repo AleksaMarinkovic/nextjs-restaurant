@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import HighlightedFoods from "./highlightedFoods";
-import style from "./page.module.scss";
+import styles from "./page.module.scss";
 import Image from "next/image";
 import Leaf from "../../../public/h3.png";
 import Menu from "./menu";
@@ -20,18 +20,18 @@ export default async function MenuPage({ params }) {
   };
   return (
     <div className={baskervville.className}>
-      <div className={style.wrapper}>
-        <div className={style.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.background}>
           <Image
             src={Leaf}
-            className={style.leaf1}
+            className={styles.leaf1}
             alt="Leaf"
             draggable="false"
           ></Image>
           <Menu translations={translations} locale={params.locale}></Menu>
           <Image
             src={Leaf}
-            className={style.leaf2}
+            className={styles.leaf2}
             alt="Leaf"
             draggable="false"
           ></Image>

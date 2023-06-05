@@ -29,6 +29,7 @@
     "location": "Gde se nalazimo?"
   },
   "Blog": {
+    "blog": "Najnovije vesti iz Pančete",
     "more": "Pročitaj više",
     "load": "Starije vesti",
     "close": "Zatvori",

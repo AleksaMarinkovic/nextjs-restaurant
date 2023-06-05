@@ -27,26 +27,35 @@ const FilterPosts = (params) => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {loadedTypes && (
-        <fieldset>
-          <legend>{params.translations.tags}</legend>
-          <input type="radio" id="" name="type" onChange={handleChange} defaultChecked/>
-          <label htmlFor="all">{params.translations.all}</label>
+        <fieldset className={styles.fieldset}>
+          <legend className={styles.legend}>
+            &nbsp;{params.translations.tags}&nbsp;
+          </legend>
+          <div className={styles.radio}>
+            <input
+              type="radio"
+              id=""
+              name="type"
+              onChange={handleChange}
+              defaultChecked
+            />
+            <label htmlFor="all" className={styles.label}>&nbsp;{params.translations.all}</label>
+          </div>
           {types.map((type) => (
-            <div key={type.id}>
+            <div key={type.id} className={styles.radio}>
               <input
                 type="radio"
                 id={type.attributes.type}
                 name="type"
                 onChange={handleChange}
               />
-              <label htmlFor={type.attributes.type}>
-                {type.attributes.type}
+              <label htmlFor={type.attributes.type} className={styles.label}>
+                &nbsp;{type.attributes.type}
               </label>
             </div>
           ))}
-          
         </fieldset>
       )}
     </div>

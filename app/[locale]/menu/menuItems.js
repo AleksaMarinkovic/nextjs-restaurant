@@ -2,7 +2,7 @@
 
 import settings from "../settings";
 import { useState, useEffect } from "react";
-import style from "./menuItems.module.scss";
+import styles from "./menuItems.module.scss";
 import QueryString from "qs";
 import MenuItem from "./menuItem";
 
@@ -43,9 +43,9 @@ const MenuItems = (params) => {
   }, [params.locale, params.activeCategory, params.activeSubCategory]);
 
   return (
-    <div className={style.wrapper}>
+    <div className={styles.wrapper}>
       {loadedMenuItems && (
-        <div className={style.menuItems}>
+        <div className={styles.menuItems}>
           {menuItems.map((item) => {
             return (<MenuItem key={item.id} name={item.attributes.name} description={item.attributes.description} price={item.attributes.price}></MenuItem>);
           })}

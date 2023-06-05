@@ -65,7 +65,7 @@ const BlogPosts = (params) => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {loadedBlogPosts ? (
         <div>
           <FilterPosts filterHandler={blogFilterHandler} translations={translations} locale={filter.locale}></FilterPosts>
@@ -98,7 +98,7 @@ const BlogPosts = (params) => {
           </div>
         </div>
       ) : (
-        <div>Loading</div>
+        <div>Loading...</div>
       )}
     </div>
   );

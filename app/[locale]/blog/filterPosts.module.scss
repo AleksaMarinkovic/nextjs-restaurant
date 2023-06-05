@@ -1,0 +1,28 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fieldset{
+    width: 20%;
+    padding: 0.5rem;
+}
+
+.legend{
+    font-size: var(--fs-ms);
+    font-weight: bold;
+}
+
+.radio{
+    margin-left: 1rem;
+}
+
+.label{    
+    font-size: var(--fs-s);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-style: italic;
+}

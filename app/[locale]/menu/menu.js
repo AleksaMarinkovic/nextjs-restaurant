@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import style from "./menu.module.scss";
+import styles from "./menu.module.scss";
 import settings from "../settings";
 import QueryString from "qs";
 import MenuItems from "./menuItems";
@@ -67,16 +67,16 @@ const Menu = (params) => {
   };
 
   return (
-    <div className={style.wrapper}>
+    <div className={styles.wrapper}>
       <div className={kaushan.className}>
-        <h1 className={style.header}>{params.translations.title}</h1>
+        <h1 className={styles.header}>{params.translations.title}</h1>
       </div>
-      <div className={style.categories}>
+      <div className={styles.categories}>
         <div
           className={
             activeCategory.categoryName === Categories.Food.categoryName
-              ? style.categoryActive
-              : style.category
+              ? styles.categoryActive
+              : styles.category
           }
           id={Categories.Food.categoryName}
           onClick={onCategoryClick}
@@ -86,8 +86,8 @@ const Menu = (params) => {
         <div
           className={
             activeCategory.categoryName === Categories.Drink.categoryName
-              ? style.categoryActive
-              : style.category
+              ? styles.categoryActive
+              : styles.category
           }
           id={Categories.Drink.categoryName}
           onClick={onCategoryClick}
@@ -95,9 +95,9 @@ const Menu = (params) => {
           {params.translations.drink}
         </div>
       </div>
-      <div className={style.separator}></div>
+      <div className={styles.separator}></div>
       {loadedSubCategories && (
-        <div className={style.subCategories}>
+        <div className={styles.subCategories}>
           {subCategories.map((subCategory) => {
             return (
               <div
@@ -105,8 +105,8 @@ const Menu = (params) => {
                 id={subCategory.attributes.name}
                 className={
                   activeSubCategory === subCategory.attributes.name
-                    ? style.categoryActive
-                    : style.category
+                    ? styles.categoryActive
+                    : styles.category
                 }
                 onClick={onSubCategoryClick}
               >
@@ -116,7 +116,7 @@ const Menu = (params) => {
           })}
         </div>
       )}
-      <div className={style.separator}></div>
+      <div className={styles.separator}></div>
       <MenuItems
         activeCategory={activeCategory}
         activeSubCategory={activeSubCategory}

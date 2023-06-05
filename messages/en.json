@@ -29,6 +29,7 @@
     "location": "Where can you find us?"
   },
   "Blog": {
+    "blog": "Our newest news from Pancetta",
     "more": "Read more",
     "load": "Older news",
     "close": "Close",
