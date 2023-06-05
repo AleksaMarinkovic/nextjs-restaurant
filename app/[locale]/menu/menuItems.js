@@ -4,6 +4,7 @@ import settings from "../settings";
 import { useState, useEffect } from "react";
 import style from "./menuItems.module.scss";
 import QueryString from "qs";
+import MenuItem from "./menuItem";
 
 const MenuItems = (params) => {
   const [menuItems, setMenuItems] = useState([]);
@@ -42,11 +43,11 @@ const MenuItems = (params) => {
   }, [params.locale, params.activeCategory, params.activeSubCategory]);
 
   return (
-    <div>
+    <div className={style.wrapper}>
       {loadedMenuItems && (
         <div className={style.menuItems}>
           {menuItems.map((item) => {
-            return <div key={item.id}>{item.attributes.name} - {item.attributes.description}</div>;
+            return (<MenuItem key={item.id} name={item.attributes.name} description={item.attributes.description} price={item.attributes.price}></MenuItem>);
           })}
         </div>
       )}
