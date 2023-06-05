@@ -16,6 +16,9 @@
     "food": "Hrana",
     "drink": "Piće"
   },
+  "Gallery": {
+    "header": "Pogledajte našu prelepu atmosferu i ukusnu hranu"
+  },
   "Contact": {
     "monday": "Ponedeljak",
     "tuesday": "Utorak",

@@ -6,7 +6,6 @@ import Image from "next/image";
 import ReactModal from "react-modal";
 import settings from "../settings";
 import { motion } from "framer-motion";
-import background from "../../../public/darkbackground.webp";
 
 const modalSettings = {
   overlay: {

@@ -16,6 +16,9 @@
     "food": "Food",
     "drink": "Drink"
   },
+  "Gallery": {
+    "header": "Take a peek at our beautiful atmosphere and delicious food"
+  },
   "Contact": {
     "monday": "Monday",
     "tuesday": "Tuesday",
