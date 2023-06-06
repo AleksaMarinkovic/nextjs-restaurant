@@ -58,26 +58,25 @@ export default async function Introduction({ params }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.background}>
-        <div className={styles.image}>
+        <div className={styles.imageWrapper}>
           <Image
-            className={styles.imageWrapper}
+            priority
             src={mainImage}
             alt="Bar inside of Pancetta"
-            width={500}
-            height={750}
-            style={{ display: "block" }}
+            fill
+            style={{
+              objectFit: "cover",
+            }}
           ></Image>
         </div>
-        <div className={styles.intro}>
-          <div className={styles.textWrapper}>
-            <div className={styles.introHeader}>
-              <h1 className={kaushan.className}>{restaurantData.name}</h1>
-            </div>
-            <p className={styles.description}>{restaurantData.description}</p>
-            <Link href="/menu" className={styles.mainButton} locale={locale}>
-              {t("menu").toUpperCase()}
-            </Link>
+        <div className={styles.textWrapper}>
+          <div className={styles.introHeader}>
+            <h1 className={kaushan.className}>{restaurantData.name}</h1>
           </div>
+          <p className={styles.description}>{restaurantData.description}</p>
+          <Link href="/menu" className={styles.mainButton} locale={locale}>
+            {t("menu").toUpperCase()}
+          </Link>
         </div>
       </div>
       <div className={styles.info}>

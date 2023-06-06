@@ -1,6 +1,6 @@
 $restaurant-yellow: #f6d17a60;
 $text-color: #f5f5f5;
-$offset: 120px;
+$offset: 10vh;
 
 .wrapper {
     display: grid;
@@ -9,12 +9,12 @@ $offset: 120px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 2fr 1fr;
     grid-template-areas:
-        "background background background"
-        "background background background"
-        "background background background"
+        "backgroundImage backgroundImage backgroundImage"
+        "backgroundImage backgroundImage backgroundImage"
+        "backgroundImage backgroundImage backgroundImage"
         ". info info";
     margin-bottom: $offset;
-    margin-top: $offset/4;
+    margin-top: $offset/3;
     padding: 2rem 4rem 0 4rem;
 }
 
@@ -24,46 +24,34 @@ $offset: 120px;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 2fr;
     gap: 0 5rem;
-    grid-area: background;
+    grid-area: backgroundImage;
     color: $text-color;
     background-image: url('../../public/darkbackground.webp');
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    justify-content: center;
-    align-items: center;
     grid-template-areas:
-        "image intro intro";
-}
-
-.info {
-    grid-area: info;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 2rem 0 0 2rem;
-    font-size: var(--fs-s);
-    gap: 2rem;
-}
-
-.infoSection {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
+        "imageWithOffset intro intro";
 }
 
 .imageWrapper {
+    position: relative;
+    grid-area: imageWithOffset;
     margin-bottom: -$offset;
-    margin-top: -$offset/4;
+    margin-top: -$offset/3;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    width: 27vw;
+    min-width: 450px;
+    height: auto;
+    aspect-ratio:  1365/2048;
 }
 
 .textWrapper {
     display: flex;
+    grid-area: intro;
     flex-flow: column wrap;
     gap: 3rem;
     justify-content: center;
     align-items: flex-start;
+    padding-right: 5rem;
 }
 
 .introHeader {
@@ -77,6 +65,8 @@ $offset: 120px;
 
 .description {
     font-size: var(--fs-s);
+    max-height: 250px;
+    text-overflow: ellipsis;
     animation: fadeIn 3s;
     -webkit-animation: fadeIn 3s;
     -moz-animation: fadeIn 3s;
@@ -101,6 +91,26 @@ $offset: 120px;
     border-color: black;
     color: black;
 }
+
+.info {
+    grid-area: info;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 2rem 0 0 2rem;
+    font-size: var(--fs-s);
+    gap: 2rem;
+}
+
+.infoSection {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
 
 @keyframes fadeIn {
     0% {
