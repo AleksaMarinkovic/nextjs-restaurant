@@ -6,6 +6,8 @@ import settings from "../settings";
 import QueryString from "qs";
 import MenuItems from "./menuItems";
 import { Kaushan_Script } from "next/font/google";
+import HighlightedFoods from "./highlightedFoods";
+import LoadingSpinner from "../loadingSpinner";
 
 const Categories = {
   Food: { categoryName: "food-categories", queryName: "Foods" },
@@ -96,7 +98,7 @@ const Menu = (params) => {
         </div>
       </div>
       <div className={styles.separator}></div>
-      {loadedSubCategories && (
+      {loadedSubCategories ? (
         <div className={styles.subCategories}>
           {subCategories.map((subCategory) => {
             return (
@@ -115,7 +117,7 @@ const Menu = (params) => {
             );
           })}
         </div>
-      )}
+      ) : (<LoadingSpinner size={50}/>)}
       <div className={styles.separator}></div>
       <MenuItems
         activeCategory={activeCategory}

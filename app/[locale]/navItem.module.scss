@@ -1,16 +1,15 @@
 $menu-nav-item-color: #5c5c5c;
 $menu-nav-item-color-hover: #000000;
-$menu-nav-item-active-color: var(--secondary-color);;
-$menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
+$menu-nav-item-active-color: darken(#d8bfa0, 30);
+$menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
 
 .navItemActive {
     color: $menu-nav-item-active-color;
     text-decoration: none;
-    font-size: var(--fs-header);
     transition: color 0.5s;
     display: inline-block;
     position: relative;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 0 10px 0;
 }
 
 .navItemActive:hover {
@@ -34,11 +33,10 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 20);
 .navItemNonActive {
     color: $menu-nav-item-color;
     text-decoration: none;
-    font-size: var(--fs-header);
     transition: color 0.5s;
     display: inline-block;
     position: relative;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 0 10px 0;
 }
 
 .navItemNonActive:hover {

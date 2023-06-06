@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import settings from "../settings";
 import { getTranslations } from "next-intl/server";
+import Header from "./header";
 
 async function getContactData(locale) {
   const res = await fetch(
@@ -16,6 +17,7 @@ export default async function ContactPage({ params }) {
   const t = await getTranslations("Contact");
   return (
     <div>
+    <Header></Header>
       <section>
         <h1>{t("openningHours")}</h1>
         <p>

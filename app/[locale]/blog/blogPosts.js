@@ -6,6 +6,7 @@ import settings from "../settings";
 import Card from "./card";
 import FilterPosts from "./filterPosts";
 import QueryString from "qs";
+import LoadingSpinner from "../loadingSpinner";
 
 const BlogPosts = (params) => {
   const [filter, setFilter] = useState({
@@ -98,7 +99,7 @@ const BlogPosts = (params) => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <LoadingSpinner size={70} color='#9e7441' padding='10rem'/>
       )}
     </div>
   );

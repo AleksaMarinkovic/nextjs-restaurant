@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import styles from "./menuItems.module.scss";
 import QueryString from "qs";
 import MenuItem from "./menuItem";
+import LoadingSpinner from "../loadingSpinner";
 
 const MenuItems = (params) => {
   const [menuItems, setMenuItems] = useState([]);
@@ -44,13 +45,13 @@ const MenuItems = (params) => {
 
   return (
     <div className={styles.wrapper}>
-      {loadedMenuItems && (
+      {loadedMenuItems ? (
         <div className={styles.menuItems}>
           {menuItems.map((item) => {
             return (<MenuItem key={item.id} name={item.attributes.name} description={item.attributes.description} price={item.attributes.price}></MenuItem>);
           })}
         </div>
-      )}
+      ): (<LoadingSpinner size={50}/>)}
     </div>
   );
 };

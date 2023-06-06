@@ -1,20 +1,22 @@
 {
   "Homepage": {
     "openningHours": "Open today: ",
-    "home": "Home",
-    "contact": "Contact",
     "menu": "Menu",
-    "gallery": "Gallery",
-    "blog": "Blog",
-    "chooseLanguage": "Choose language",
     "workingHours": "Open today",
     "address": "Where can you find us",
     "phone": "Contact us"
   },
+  "Header":{
+    "home": "About us",
+    "contact": "Contact",
+    "menu": "Our menu",
+    "gallery": "Gallery",
+    "blog": "Events"
+  },
   "Menu": {
-    "title": "- Menu items -",
+    "title": "- Our menu -",
     "food": "Food",
-    "drink": "Drink"
+    "drink": "Drinks"
   },
   "Gallery": {
     "header": "Take a peek at our beautiful atmosphere and delicious food"
@@ -31,6 +33,10 @@
     "socialMedia": "Visit our social media",
     "location": "Where can you find us?"
   },
+  "ContactPage": {
+    "header": "Contact us",
+    "event": "Our newest events"
+  },
   "Blog": {
     "blog": "Our newest news from Pancetta",
     "more": "Read more",
@@ -43,6 +49,7 @@
     "contact": "Contact",
     "write": "Reach out",
     "address": "Our address",
-    "follow": "Follow our social media"
+    "follow": "Follow our social media",
+    "chooseLanguage": "Choose language:"
   }
 }

@@ -16,7 +16,7 @@ const merienda = Merienda({
   display: "swap",
 });
 
-const HighlightedFoods = ({ params }) => {
+const HighlightedFoods = (params) => {
   const [highlightedFoodsData, setHighlightedFoodsData] = useState();
   const [loadedHighlightedFoodsInfo, setLoadedHighlightedFoodsInfo] = useState(false);
 

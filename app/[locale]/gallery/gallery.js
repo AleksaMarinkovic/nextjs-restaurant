@@ -12,6 +12,7 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import LoadingSpinner from "../loadingSpinner";
 
 function convertToPhotoAlbumArray(data) {
   const photos = [];
@@ -35,7 +36,6 @@ const Gallery = (params) => {
   const [loadedPhotos, setLoadedPhotos] = useState(false);
   const [index, setIndex] = useState(-1);
   useEffect(() => {
-    console.log(params.locale);
     async function getPhotos(locale) {
       const query = QueryString.stringify({
         fields: ["description"],
@@ -78,7 +78,7 @@ const Gallery = (params) => {
           />
         </div>
       ) : (
-        <div>Loading</div>
+        <LoadingSpinner size={70} color='#9e7441' padding='10rem'/>
       )}
     </div>
   );

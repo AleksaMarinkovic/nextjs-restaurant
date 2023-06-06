@@ -1,18 +1,21 @@
 {
   "Homepage": {
     "openningHours": "Otvoreno danas: ",
-    "home": "Naslovna",
-    "contact": "Kontakt",
-    "menu": "Jelovnik",
-    "gallery": "Galerija",
-    "blog": "Blog",
     "chooseLanguage": "Izaberite jezik",
+    "menu": "Jelovnik",
     "workingHours": "Otvoreno danas",
     "address": "Gde nas možete pronaći",
     "phone": "Kontaktirajte nas"
   },
+  "Header":{
+    "home": "O nama",
+    "contact": "Kontakt",
+    "menu": "Naš jelovnik",
+    "gallery": "Galerija",
+    "blog": "Kalendar događaja"
+  },
   "Menu": {
-    "title": "- Stavke sa jelovnika -",
+    "title": "- Naš jelovnik -",
     "food": "Hrana",
     "drink": "Piće"
   },
@@ -31,6 +34,10 @@
     "socialMedia": "Posetite naše društvene mreže",
     "location": "Gde se nalazimo?"
   },
+  "ContactPage": {
+    "header": "Kontaktirajte nas",
+    "event": "Pogledajte plan događaja"
+  },
   "Blog": {
     "blog": "Najnovije vesti iz Pančete",
     "more": "Pročitaj više",
@@ -43,6 +50,7 @@
     "contact": "Kontakt",
     "write": "Pišite nam",
     "address": "Adresa",
-    "follow": "Pratite nas"
+    "follow": "Pratite nas",
+    "chooseLanguage": "Choose language:"
   }
 }

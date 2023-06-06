@@ -37,6 +37,7 @@ export default async function MenuPage({ params }) {
           ></Image>
         </div>
       </div>
+      
     </div>
   );
 }

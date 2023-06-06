@@ -24,7 +24,7 @@ const baskervville = Baskervville({
 
 export default async function Header({ locale }) {
   const headerInfo = await getHeaderInfo(locale);
-  const t = await getTranslations("Homepage");
+  const t = await getTranslations("Header");
   return (
     <div className={styles.headerWrapper}>
       <div className={baskervville.className}>
@@ -38,8 +38,8 @@ export default async function Header({ locale }) {
                 headerInfo.attributes.logo.data.attributes.url
               }
               draggable={false}
-              width={200}
-              height={65}
+              width={175}
+              height={60}
             ></Image>
           </Link>
           <nav className={styles.nav}>
@@ -48,9 +48,6 @@ export default async function Header({ locale }) {
             <NavItem href="/gallery" text={t("gallery")} locale={locale}/>
             <NavItem href="/blog" text={t("blog")} locale={locale}/>
             <NavItem href="/contact" text={t("contact")} locale={locale}/>
-            <div className={styles.rightSideMenu}>
-              <LanguagePicker locale={locale}></LanguagePicker>
-            </div>
           </nav>
         </header>
       </div>

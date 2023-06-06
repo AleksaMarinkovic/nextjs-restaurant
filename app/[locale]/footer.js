@@ -9,6 +9,7 @@ import instagram from "../../public/3225191_app_instagram_logo_media_popular_ico
 import facebook from "../../public/317752_facebook_social media_social_icon.svg";
 import tripadvisor from "../../public/3069745_circle_round icon_travel_tripadvisor_icon.svg";
 import linkedin from "../../public/317750_linkedin_icon.svg";
+import LanguagePicker from "./languagePicker";
 
 async function getFooterInfo(locale) {
   const query = QueryString.stringify(
@@ -128,8 +129,8 @@ export default async function Footer({ locale }) {
               >
                 <Image
                   src={twitter}
-                  width={45}
-                  height={45}
+                  width={40}
+                  height={40}
                   alt={<p>{restaurantData.attributes.socialMedia.twitter}</p>}
                 />
               </Link>
@@ -142,8 +143,8 @@ export default async function Footer({ locale }) {
               >
                 <Image
                   src={facebook}
-                  width={45}
-                  height={45}
+                  width={40}
+                  height={40}
                   alt={<p>{restaurantData.attributes.socialMedia.facebook}</p>}
                 />
               </Link>
@@ -156,8 +157,8 @@ export default async function Footer({ locale }) {
               >
                 <Image
                   src={tripadvisor}
-                  width={45}
-                  height={45}
+                  width={40}
+                  height={40}
                   alt={
                     <p>{restaurantData.attributes.socialMedia.tripAdvisor}</p>
                   }
@@ -172,8 +173,8 @@ export default async function Footer({ locale }) {
               >
                 <Image
                   src={instagram}
-                  width={45}
-                  height={45}
+                  width={40}
+                  height={40}
                   alt={<p>{restaurantData.attributes.socialMedia.instagram}</p>}
                 />
               </Link>
@@ -186,8 +187,8 @@ export default async function Footer({ locale }) {
               >
                 <Image
                   src={linkedin}
-                  width={45}
-                  height={45}
+                  width={40}
+                  height={40}
                   alt={<p>{restaurantData.attributes.socialMedia.linkedin}</p>}
                 />
               </Link>
@@ -196,10 +197,13 @@ export default async function Footer({ locale }) {
         </div>
       </div>
       <div className={styles.sectionTwo}>
-        <h3>
-          Website by <span style={{ fontWeight: "400" }}>Aleksa</span>
-        </h3>
-        <h3>© Pancetta Concept Bar 2013 - 2023</h3>
+        <div className={styles.language}>
+          <p>{t("chooseLanguage")}</p>
+          <LanguagePicker locale={locale}></LanguagePicker>
+        </div>
+        <p>© Pancetta Concept Bar 2013 - 2023</p>
+
+        <p>Website by Aleksa </p>
       </div>
     </div>
   );
