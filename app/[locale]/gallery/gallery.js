@@ -13,6 +13,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import LoadingSpinner from "../loadingSpinner";
+import styles from "./gallery.module.scss";
 
 function convertToPhotoAlbumArray(data) {
   const photos = [];
@@ -35,12 +36,23 @@ const Gallery = (params) => {
   const [photos, setPhotos] = useState([]);
   const [loadedPhotos, setLoadedPhotos] = useState(false);
   const [index, setIndex] = useState(-1);
+  const [pageSize, setPageSize] = useState(10);
+  const [isEnd, setIsEnd] = useState(false);
+
+  const onLoadMoreClick = () => {
+    setPageSize(pageSize + 5);
+  };
+
   useEffect(() => {
     async function getPhotos(locale) {
       const query = QueryString.stringify({
         fields: ["description"],
         populate: ["image"],
         locale: [locale],
+        pagination: {
+          page: 1,
+          pageSize: pageSize,
+        },
       });
       const res = await fetch(
         `${settings.backendUrl}/api/restaurant-images?${query}`,
@@ -53,9 +65,15 @@ const Gallery = (params) => {
         setPhotos(convertToPhotoAlbumArray(data.data));
         setLoadedPhotos(true);
       }
+      if(data.meta.pagination.total === data.data.length){
+        setIsEnd(true);
+      }
+      else{
+        setIsEnd(false);
+      }
     }
     getPhotos(params.locale);
-  }, [params.locale]);
+  }, [params.locale, pageSize]);
   return (
     <div>
       {loadedPhotos ? (
@@ -64,10 +82,37 @@ const Gallery = (params) => {
             layout="masonry"
             photos={photos}
             renderPhoto={NextJsImage}
-            defaultContainerWidth={1200}
             sizes={{ size: "calc(100vw - 240px)" }}
+            columns={(containerWidth) => {
+              if (containerWidth < 700) return 2;
+              if (containerWidth < 950) return 3;
+              return 4;
+            }}
+            spacing={(containerWidth) => {
+              if (containerWidth < 700) return 5;
+              if (containerWidth < 950) return 8;
+              return 10;
+            }}
             onClick={({ index }) => setIndex(index)}
           ></PhotoAlbum>
+          {!isEnd && (
+            <div className={styles.buttonContainer}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                width={75}
+                height={75}
+                onClick={onLoadMoreClick}
+                className={styles.plus}
+              >
+                <path
+                  fill="currentColor"
+                  d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z"
+                />
+              </svg>
+            </div>
+          )}
+
           <Lightbox
             slides={photos}
             open={index >= 0}
@@ -78,7 +123,7 @@ const Gallery = (params) => {
           />
         </div>
       ) : (
-        <LoadingSpinner size={70} color='#9e7441' padding='10rem'/>
+        <LoadingSpinner size={70} color="#9e7441" padding="10rem" />
       )}
     </div>
   );

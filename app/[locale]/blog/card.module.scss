@@ -29,26 +29,32 @@
     text-align: center;
 }
 
+.imageWrapper{
+    overflow: hidden;
+}
+
 .image {
-    background-color: rgb(239, 205, 255);
+    background-color: var(--secondary-color-light);
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.2);
+    transition: ease 0.3s;
 }
 
 .image:hover {
     cursor: pointer;
+    scale: 0.9;
 }
 
 .title {
-    color: #111827;
-    font-size: 1.125rem;
+    color: var(--primary-color-alt);
+    font-size: var(--fs-sm);
     line-height: 1.75rem;
     font-weight: 600;
 }
 
 .desc {
     margin-top: 0.5rem;
-    color: #6B7280;
-    font-size: 0.875rem;
+    color: var(--primary-color-dark);
+    font-size: var(--fs-s);
     line-height: 1.25rem;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -59,8 +65,8 @@
     display: inline-flex;
     text-decoration: none;
     margin-top: 1rem;
-    color: #ffffff;
-    font-size: 0.875rem;
+    color: var(--tertiary-color);
+    font-size: var(--fs-s);
     line-height: 1.25rem;
     font-weight: 400;
     align-items: center;
@@ -71,35 +77,12 @@
     border-color: var(--secondary-color);
     cursor: pointer;
     transition: 0.3s ease;
+    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
 }
 
 .action:hover {
-    //cant use global variable, sass compliler doesn't know css variable at compile time. #d9bfa1 here represents var(--secondary-color)
-    background-color: darken(#dab790, 8);
+    background-color: var(--secondary-color-dark1);
 }
-
-.actionModal{
-    display: flex;
-    width: 80px;
-    height: 40px;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: var(--fs-s);
-    font-weight: 400;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--secondary-color);
-    border-radius: 4px;
-    border-color: var(--secondary-color);
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.actionModal:hover {
-    //cant use global variable, sass compliler doesn't know css variable at compile time. #d9bfa1 here represents var(--secondary-color)
-    background-color: darken(#dab790, 8);
-}
-
 
 .action span {
     transition: .3s ease;
@@ -120,13 +103,13 @@
 
 .tag {
     text-decoration: none;
-    color: #6B7280;
+    color: var(--primary-color);
     transition: .3 ease;
 }
 
 .tag:hover {
     text-decoration: underline;
-    color: darken(#6B7280, 30);
+    color: var(--primary-color-dark);
 }
 
 .modalContent {
@@ -146,15 +129,39 @@
 }
 
 .modalTitle {
-    color: #111827;
+    color: var(--primary-color-alt);
     font-size: var(--fs-m);
     line-height: 1.75rem;
     font-weight: 600;
 }
 
 .modalDesc {
-    color: #111827;
+    color: var(--primary-color-alt);
     font-weight: 400;
     font-size: var(--fs-s);
     white-space: pre-line;
 }
+
+
+.actionModal{
+    display: flex;
+    width: 80px;
+    height: 40px;
+    text-decoration: none;
+    color: var(--tertiary-color);
+    font-size: var(--fs-s);
+    font-weight: 400;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    border-color: var(--secondary-color);
+    cursor: pointer;
+    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+    transition: 0.3s ease;
+}
+
+.actionModal:hover {
+    background-color: var(--secondary-color-dark1);
+}
+

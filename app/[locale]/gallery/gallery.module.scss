@@ -1,0 +1,16 @@
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus{
+    color: var(--primary-color-alt);
+    transition: ease 0.3s;
+}
+
+.plus:hover{
+    color: var(--secondary-color);
+    transition: ease 0.3s;
+    cursor: pointer;
+}

@@ -1,10 +1,5 @@
-$menu-nav-item-color: #5c5c5c;
-$menu-nav-item-color-hover: #000000;
-$menu-nav-item-active-color: darken(#d8bfa0, 30);
-$menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
-
 .navItemActive {
-    color: $menu-nav-item-active-color;
+    color: var(--secondary-color-dark2);
     text-decoration: none;
     transition: color 0.5s;
     display: inline-block;
@@ -13,7 +8,7 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
 }
 
 .navItemActive:hover {
-    color: $menu-nav-item-active-color-hover;
+    color: var(--secondary-color-dark1);
 }
 
 .navItemActive::after {
@@ -24,14 +19,18 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: $menu-nav-item-active-color-hover;
+    background-color: var(--secondary-color-dark2);
     transform-origin: bottom center;
-    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-in, background-color 0.5s;
     transform: scaleX(1);
 }
 
+.navItemActive:hover::after {
+    background-color: var(--secondary-color-dark1);
+}
+
 .navItemNonActive {
-    color: $menu-nav-item-color;
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.5s;
     display: inline-block;
@@ -40,7 +39,7 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
 }
 
 .navItemNonActive:hover {
-    color: $menu-nav-item-color-hover;
+    color: var(--primary-color-alt);
 }
 
 .navItemNonActive::after {
@@ -51,7 +50,7 @@ $menu-nav-item-active-color-hover: darken(#d8bfa0, 30);
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: $menu-nav-item-color-hover;
+    background-color: var(--primary-color-alt);
     transform-origin: bottom center;
     transition: transform 0.25s ease-out;
 }

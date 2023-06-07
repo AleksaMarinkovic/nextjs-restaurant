@@ -63,7 +63,8 @@ const Card = (params) => {
           className={styles.card}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
+        > 
+        <div className={styles.imageWrapper}>
           <Image
             alt={post.attributes.thumbnail.data.attributes.name}
             src={
@@ -75,7 +76,7 @@ const Card = (params) => {
             priority
             width={300}
             height={300}
-          ></Image>
+          ></Image></div>
 
           <div className={styles.content}>
             <h1 className={styles.title}>{post.attributes.title}</h1>

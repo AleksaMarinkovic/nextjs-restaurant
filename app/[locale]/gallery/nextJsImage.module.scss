@@ -1,0 +1,28 @@
+.overlay{
+    background-color: transparent !important;
+    color: transparent;
+    font-size: var(--fs-l);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: ease 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay:hover{
+    background-color: var(--primary-color-alt-alpha4) !important;
+    transition: ease 0.3s;
+}
+
+.magnifyingGlass{
+    opacity: 0;
+    transition: ease 0.2s;
+    color: var(--secondary-color) !important;
+}
+
+.overlay:hover .magnifyingGlass{
+    transition: ease 0.5s;
+    opacity: 1;
+}

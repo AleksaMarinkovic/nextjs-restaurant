@@ -46,8 +46,10 @@ const BlogPosts = (params) => {
         { next: { revalidate: settings.revalidateTime } }
       );
       const data = await res.json();
-      setBlogPosts(data.data);
-      setLoadedBlogPosts(true);
+      if(data.data){
+        setBlogPosts(data.data);
+        setLoadedBlogPosts(true);
+      }
       if (data.meta.pagination.total === data.data.length) {
         setIsEnd(true);
       }else{

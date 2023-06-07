@@ -9,14 +9,14 @@
 }
 
 .header {
-    font-size: var(--fs-l);
+    font-size: var(--fs-xl);
     font-weight: 200;
-    color: darken(wheat, 10);
+    color: var(--secondary-color);
     padding: 1rem 0 1rem 0;
 }
 
 .separator {
-    border-bottom: 1px solid wheat;
+    border-bottom: 1px solid var(--secondary-color);
     width: 100%;
     opacity: 50%;
     z-index: 0;
@@ -35,25 +35,29 @@
 
 .category {
     transition: 0.3s;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    color: var(--tertiary-color);
 }
 
 .categoryActive {
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-    color: black;
-    background-color: rgba($color: wheat, $alpha: 0.8);
-    border-radius: 0.3rem;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 30px;
+    transition: background-color 0.3s;
 
 }
 
 .categoryActive:hover {
-    background-color: rgba($color: wheat, $alpha: 0.7);
+    background-color: var(--secondary-color);
+    color: var(--primary-color-alt);
     cursor: pointer;
 }
 
 .category:hover {
     cursor: pointer;
-    color: wheat;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 

@@ -15,8 +15,8 @@ $restaurant-yellow: #f6d17a60;
 
 .table{
     background-image: url('../../../public/darkbackground.webp');
-    color: white;
-    border-top: 1px solid $restaurant-yellow;
+    color: var(--tertiary-color);
+    border-top: 1px solid var(--secondary-color-dark2);
     padding: 4rem 0 2rem 0;
     margin: 0 0 0 0;
 }
@@ -36,7 +36,7 @@ $restaurant-yellow: #f6d17a60;
 
 .foodCardName{
     margin-top: 2rem;
-    color: wheat;
+    color: var(--secondary-color);
     font-size: x-large;
 }
 
