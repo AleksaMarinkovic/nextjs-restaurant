@@ -20,8 +20,8 @@ const modalSettings = {
   content: {
     position: "absolute",
     top: "10vh",
-    left: "35vw",
-    right: "35vw",
+    left: "25vw",
+    right: "25vw",
     bottom: "10vh",
     background: "#f5f5f4",
     overflow: "auto",
@@ -34,6 +34,7 @@ const modalSettings = {
     flexFlow: "column",
     justifyContent: "flex-start",
     alignItems: "center",
+    margin:"0 5rem 0 5rem !important",
     zIndex: 99,
   },
 };

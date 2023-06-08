@@ -129,7 +129,7 @@
 
 .modalImageWrapper{
     position: relative;
-    width: 60%;
+    width: 500px;
     aspect-ratio: 1;
 }
 
@@ -166,6 +166,6 @@
 
 @media only screen and (max-width: 992px) {
     .modalImageWrapper{
-        width: 80%;
+        width: 70%;
     }
 }
