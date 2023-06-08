@@ -2,10 +2,10 @@ import styles from "./header.module.scss";
 import Image from "next/image";
 import { Link } from "next-intl";
 import settings from "./settings";
-import LanguagePicker from "./languagePicker";
 import { getTranslations } from "next-intl/server";
 import { Baskervville } from "next/font/google";
 import NavItem from "./navItem";
+import HeaderToggle from "./headerToggle";
 
 async function getHeaderInfo(locale) {
   const res = await fetch(
@@ -19,12 +19,20 @@ async function getHeaderInfo(locale) {
 const baskervville = Baskervville({
   subsets: ["latin"],
   display: "swap",
-  weight: '400'
+  weight: "400",
 });
 
 export default async function Header({ locale }) {
   const headerInfo = await getHeaderInfo(locale);
   const t = await getTranslations("Header");
+  const translations = {
+    home: t("home"),
+    menu: t("menu"),
+    gallery: t("gallery"),
+    blog: t("blog"),
+    contact: t("contact"),
+  };
+
   return (
     <div className={styles.headerWrapper}>
       <div className={baskervville.className}>
@@ -38,18 +46,23 @@ export default async function Header({ locale }) {
                 headerInfo.attributes.logo.data.attributes.url
               }
               draggable={false}
-              width={175}
-              height={60}
+              fill
+              quality={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw "
             ></Image>
           </Link>
           <nav className={styles.nav}>
-            <NavItem href="/" text={t("home")} locale={locale}/>
-            <NavItem href="/menu" text={t("menu")} locale={locale}/>
-            <NavItem href="/gallery" text={t("gallery")} locale={locale}/>
-            <NavItem href="/blog" text={t("blog")} locale={locale}/>
-            <NavItem href="/contact" text={t("contact")} locale={locale}/>
+            <NavItem href="/" text={t("home")} locale={locale} />
+            <NavItem href="/menu" text={t("menu")} locale={locale} />
+            <NavItem href="/gallery" text={t("gallery")} locale={locale} />
+            <NavItem href="/blog" text={t("blog")} locale={locale} />
+            <NavItem href="/contact" text={t("contact")} locale={locale} />
           </nav>
-        </header>
+        </header>{" "}
+        <HeaderToggle
+          locale={locale}
+          translations={translations}
+        ></HeaderToggle>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ const todaysOpenningHours = (openningHours, t) => {
     case 3:
       return { day: t("wednesday"), hours: openningHours.wednesday };
     case 4:
-      return { day: t("thursday:"), hours: openningHours.thursday };
+      return { day: t("thursday"), hours: openningHours.thursday };
     case 5:
       return { day: t("friday"), hours: openningHours.friday };
     case 6:
