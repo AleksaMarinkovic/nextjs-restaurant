@@ -120,14 +120,6 @@
     gap: 2rem;
 }
 
-.imageAndDesc{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    justify-content: flex-start;
-}
-
 .modalTitle {
     color: var(--primary-color-alt);
     font-size: var(--fs-m);
@@ -135,8 +127,15 @@
     font-weight: 600;
 }
 
+.modalImageWrapper{
+    position: relative;
+    width: 60%;
+    aspect-ratio: 1;
+}
+
 .modalDesc {
     color: var(--primary-color-alt);
+    max-width: 50%;
     font-weight: 400;
     font-size: var(--fs-s);
     white-space: pre-line;
@@ -165,3 +164,8 @@
     background-color: var(--secondary-color-dark1);
 }
 
+@media only screen and (max-width: 992px) {
+    .modalImageWrapper{
+        width: 80%;
+    }
+}

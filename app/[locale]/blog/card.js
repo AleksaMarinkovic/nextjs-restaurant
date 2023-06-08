@@ -15,26 +15,26 @@ const modalSettings = {
     right: -200,
     bottom: 0,
     backgroundColor: "rgba(255, 255, 255, 0.4)",
-    zIndex: 99
+    zIndex: 99,
   },
   content: {
     position: "absolute",
     top: "10vh",
-    left: "30vw",
-    right: "30vw",
+    left: "35vw",
+    right: "35vw",
     bottom: "10vh",
     background: "#f5f5f4",
     overflow: "auto",
     WebkitOverflowScrolling: "touch",
     borderRadius: "0.5rem",
     outline: "none",
-    padding: "0 5rem 0 5rem",
+    padding: "2rem 5vw 2rem 5vw",
     boxShadow: "0 0 50px 1px #333",
     display: "flex",
     flexFlow: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
-    zIndex: 99
+    zIndex: 99,
   },
 };
 
@@ -63,20 +63,21 @@ const Card = (params) => {
           className={styles.card}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        > 
-        <div className={styles.imageWrapper}>
-          <Image
-            alt={post.attributes.thumbnail.data.attributes.name}
-            src={
-              settings.backendUrl +
-              post.attributes.thumbnail.data.attributes.url
-            }
-            onClick={handleOpenModal}
-            className={styles.image}
-            priority
-            width={300}
-            height={300}
-          ></Image></div>
+        >
+          <div className={styles.imageWrapper}>
+            <Image
+              alt={post.attributes.thumbnail.data.attributes.name}
+              src={
+                settings.backendUrl +
+                post.attributes.thumbnail.data.attributes.url
+              }
+              onClick={handleOpenModal}
+              className={styles.image}
+              priority
+              width={300}
+              height={300}
+            ></Image>
+          </div>
 
           <div className={styles.content}>
             <h1 className={styles.title}>{post.attributes.title}</h1>
@@ -93,8 +94,14 @@ const Card = (params) => {
               shouldCloseOnOverlayClick={true}
             >
               <div className={styles.modalContent}>
+                <button
+                  onClick={handleCloseModal}
+                  className={styles.actionModal}
+                >
+                  {translations.close}
+                </button>
                 <h1 className={styles.modalTitle}>{post.attributes.title}</h1>
-                <div className={styles.imageAndDesc}>
+                <div className={styles.modalImageWrapper}>
                   <Image
                     alt={post.attributes.thumbnail.data.attributes.name}
                     src={
@@ -102,17 +109,13 @@ const Card = (params) => {
                       post.attributes.thumbnail.data.attributes.url
                     }
                     priority
-                    width={500}
-                    height={500}
+                    fill
                   ></Image>
-                  <p className={styles.modalDesc}>
-                    {post.attributes.description}
-                  </p>
                 </div>
 
-                <button onClick={handleCloseModal} className={styles.actionModal}>
-                  {translations.close}
-                </button>
+                <p className={styles.modalDesc}>
+                  {post.attributes.description}
+                </p>
               </div>
             </ReactModal>
             <div className={styles.tags}>
