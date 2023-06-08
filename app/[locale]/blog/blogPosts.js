@@ -70,7 +70,7 @@ const BlogPosts = (params) => {
   return (
     <div className={styles.wrapper}>
       {loadedBlogPosts ? (
-        <div>
+        <div className={styles.blogPosts}>
           <FilterPosts filterHandler={blogFilterHandler} translations={translations} locale={filter.locale}></FilterPosts>
           <div className={styles.container}>
             {blogPosts.map((post) => {

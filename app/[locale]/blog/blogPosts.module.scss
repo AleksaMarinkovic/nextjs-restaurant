@@ -5,8 +5,15 @@
     justify-content: center;
 }
 
+.blogPosts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0rem 0 0rem;
+    align-items: center;
+}
+
 .container {
-    padding: 2rem 10rem 0 10rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
