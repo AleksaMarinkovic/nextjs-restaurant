@@ -9,10 +9,10 @@ const HeaderToggle = ({ locale, translations }) => {
   const [toggle, setToggle] = useState(false);
   let toggleButton = createRef();
   const toggleClick = () => {
-    toggleButton.current.classList.toggle("opened");
+    toggleButton.current.classList.toggle(styles.opened);
     toggleButton.current.setAttribute(
       "aria-expanded",
-      toggleButton.current.classList.contains("opened")
+      toggleButton.current.classList.contains(styles.opened)
     );
     setToggle(!toggle);
   };
