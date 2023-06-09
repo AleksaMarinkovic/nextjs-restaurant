@@ -34,36 +34,31 @@ export default async function Header({ locale }) {
   };
 
   return (
-    <div className={styles.headerWrapper}>
-      <div className={baskervville.className}>
-        <header className={styles.header}>
-          <Link className={styles.logoWrapper} href="/" locale={locale}>
-            <Image
-              alt="Restaurant logo"
-              priority
-              src={
-                settings.backendUrl +
-                headerInfo.attributes.logo.data.attributes.url
-              }
-              draggable={false}
-              fill
-              quality={100}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw "
-            ></Image>
-          </Link>
-          <nav className={styles.nav}>
-            <NavItem href="/" text={t("home")} locale={locale} />
-            <NavItem href="/menu" text={t("menu")} locale={locale} />
-            <NavItem href="/gallery" text={t("gallery")} locale={locale} />
-            <NavItem href="/blog" text={t("blog")} locale={locale} />
-            <NavItem href="/contact" text={t("contact")} locale={locale} />
-          </nav>
-        </header>{" "}
-        <HeaderToggle
-          locale={locale}
-          translations={translations}
-        ></HeaderToggle>
-      </div>
+    <div className={`${styles.headerWrapper} ${baskervville.className}`}>
+      <header className={styles.header}>
+        <Link className={styles.logoWrapper} href="/" locale={locale}>
+          <Image
+            alt="Restaurant logo"
+            priority
+            src={
+              settings.backendUrl +
+              headerInfo.attributes.logo.data.attributes.url
+            }
+            draggable={false}
+            fill
+            quality={100}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw "
+          ></Image>
+        </Link>
+        <nav className={styles.nav}>
+          <NavItem href="/" text={t("home")} locale={locale} />
+          <NavItem href="/menu" text={t("menu")} locale={locale} />
+          <NavItem href="/gallery" text={t("gallery")} locale={locale} />
+          <NavItem href="/blog" text={t("blog")} locale={locale} />
+          <NavItem href="/contact" text={t("contact")} locale={locale} />
+        </nav>
+      </header>{" "}
+      <HeaderToggle locale={locale} translations={translations}></HeaderToggle>
     </div>
   );
 }

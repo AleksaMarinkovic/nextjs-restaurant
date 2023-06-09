@@ -34,7 +34,7 @@ const modalSettings = {
     flexFlow: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    margin:"0 5rem 0 5rem !important",
+    margin: "0 5rem 0 5rem !important",
     zIndex: 99,
   },
 };
@@ -43,8 +43,8 @@ const Card = (params) => {
   const [showModal, setShowModal] = useState(false);
   const [post, setPost] = useState();
   const [translations, setTranslations] = useState();
-  ReactModal.setAppElement(document.getElementById("root"));
   useEffect(() => {
+    ReactModal.setAppElement('body');
     setPost(params.post);
     setTranslations(params.translations);
   }, [params.post, params.translations]);
@@ -93,7 +93,7 @@ const Card = (params) => {
               style={modalSettings}
               onRequestClose={handleCloseModal}
               shouldCloseOnOverlayClick={true}
-            >
+              >
               <div className={styles.modalContent}>
                 <button
                   onClick={handleCloseModal}

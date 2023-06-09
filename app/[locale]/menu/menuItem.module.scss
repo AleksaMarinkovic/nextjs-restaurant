@@ -34,6 +34,14 @@
     font-weight: 200;
 }
 
+.priceMobile {
+    display: none;
+    font-size: var(--fs-ms);
+    flex-shrink: 0;
+    font-weight: 200;
+}
+
+
 .description {
     font-size: var(--fs-s);
     font-style: italic;
@@ -88,5 +96,24 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .wrapper {
+        gap:0.5rem;
+    }
+
+    .name {
+        overflow: auto;
+        white-space: normal;
+    }
+
+    .price {
+        display: none;
+    }
+
+    .priceMobile {
+        display: block;
     }
 }
