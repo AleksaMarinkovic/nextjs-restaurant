@@ -56,3 +56,11 @@ body {
   opacity: 0;
   transform: translateX(+200px);
 }
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
