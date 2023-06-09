@@ -2,13 +2,13 @@
 
 import { useState, createRef } from "react";
 import styles from "./headerToggle.module.scss";
-import NavItem from "./navItem";
+import MobileHeader from "./mobileHeader";
+import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderToggle = ({ locale, translations }) => {
   const [toggle, setToggle] = useState(false);
   let toggleButton = createRef();
   const toggleClick = () => {
-    console.log(toggleButton);
     toggleButton.current.classList.toggle("opened");
     toggleButton.current.setAttribute(
       "aria-expanded",
@@ -42,23 +42,24 @@ const HeaderToggle = ({ locale, translations }) => {
           </svg>
         </button>
       </div>
-      {toggle && (
-        <div className={styles.mobileHeader}>
-          <NavItem href="/" text={translations.home} locale={locale} />
-          <NavItem href="/menu" text={translations.menu} locale={locale} />
-          <NavItem
-            href="/gallery"
-            text={translations.gallery}
-            locale={locale}
-          />
-          <NavItem href="/blog" text={translations.blog} locale={locale} />
-          <NavItem
-            href="/contact"
-            text={translations.contact}
-            locale={locale}
-          />
-        </div>
-      )}
+      <div>
+      <AnimatePresence>
+        {toggle && (
+            <motion.div
+              key="header"
+              initial={{ rotateX: "90deg", height: 0}}
+              animate={{ rotateX: 0, height: "auto"}}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              exit={{ rotateX: "90deg", height: 0}}
+            >
+              <MobileHeader
+                translations={translations}
+                locale={locale}
+              ></MobileHeader>
+            </motion.div>
+        )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

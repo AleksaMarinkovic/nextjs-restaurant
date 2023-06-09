@@ -15,9 +15,9 @@
 }
 
 .mobileHeader {
-    display: none;
+    height: 0;
+    overflow: hidden;
 }
-
 
 .menu {
     background-color: transparent;

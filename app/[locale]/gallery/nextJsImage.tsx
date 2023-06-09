@@ -17,6 +17,7 @@ export default function NextJsImage({
         src={photo}
         placeholder={"blurDataURL" in photo ? "blur" : undefined}
         {...{ alt, title, sizes, className }}
+        priority
       />
       <div className={styles.overlay} onClick={onClick}>
         <div>
