@@ -125,16 +125,15 @@ $maxImageWidth: 500px;
     }
 
     .textWrapper {
-        display: flex;
-        flex-flow: column wrap;
-        gap: 3rem;
-        max-width: 60%;
+        max-width: 80%;
         justify-content: center;
         align-items: center;
         padding: 2rem 0 2rem 0;
     }
     .info {
         margin-left: 0;
+    }
+    .description {
     }
 }
 
