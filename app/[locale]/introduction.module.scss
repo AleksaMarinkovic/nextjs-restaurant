@@ -1,55 +1,45 @@
 $offset: 10vh;
+$minImageWidth: 400px;
+$maxImageWidth: 500px;
 
 .wrapper {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr 1fr;
-    grid-template-areas:
-        "backgroundImage backgroundImage backgroundImage"
-        "backgroundImage backgroundImage backgroundImage"
-        "backgroundImage backgroundImage backgroundImage"
-        ". info info";
+    display: flex;
+    flex-direction: column;
     margin-bottom: $offset;
     margin-top: $offset/3;
     padding: 2rem 4rem 0 4rem;
+    overflow: hidden;
 }
 
 .background {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
     gap: 0 5rem;
-    grid-area: backgroundImage;
     color: var(--tertiary-color);
     background-image: url('../../public/darkbackground.webp');
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    grid-template-areas:
-        "imageWithOffset intro intro";
 }
 
 .imageWrapper {
     position: relative;
-    grid-area: imageWithOffset;
+    flex-basis: $minImageWidth;
+    flex-shrink: 0;
+    flex-grow: 3;
     margin-bottom: -$offset;
     margin-top: -$offset/3;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    width: 27vw;
-    min-width: 450px;
-    height: auto;
+    min-width: $minImageWidth;
+    max-width: $maxImageWidth;
     aspect-ratio:  1365/2048;
 }
 
 .textWrapper {
     display: flex;
-    grid-area: intro;
     flex-flow: column wrap;
     gap: 3rem;
+    max-width: 60%;
     justify-content: center;
     align-items: flex-start;
-    padding-right: 5rem;
+    padding: 2rem 5rem 2rem 0;
 }
 
 .introHeader {
@@ -63,7 +53,6 @@ $offset: 10vh;
 
 .description {
     font-size: var(--fs-s);
-    max-height: 250px;
     text-overflow: ellipsis;
     animation: fadeIn 3s;
     -webkit-animation: fadeIn 3s;
@@ -91,7 +80,7 @@ $offset: 10vh;
 }
 
 .info {
-    grid-area: info;
+    margin-left: $maxImageWidth;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -108,7 +97,46 @@ $offset: 10vh;
     gap: 0.5rem;
 }
 
+@media only screen and (max-width: 1280px) {
 
+    .wrapper {
+        padding: 2rem 1rem 0 1rem;
+    }
+
+    .background{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imageWrapper {
+        position: relative;
+        margin-bottom: 0;
+        margin-top: 0;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        min-width:  0;
+        max-width: 100%;
+        width: 100%;
+        aspect-ratio:  1365/2048;
+    }
+
+    .introHeader {
+        text-align: center;
+    }
+
+    .textWrapper {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 3rem;
+        max-width: 60%;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0 2rem 0;
+    }
+    .info {
+        margin-left: 0;
+    }
+}
 
 @keyframes fadeIn {
     0% {

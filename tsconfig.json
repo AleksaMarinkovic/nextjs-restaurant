@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/[locale]/blog/error.js"  ],
   "exclude": [
     "node_modules"
   ]
