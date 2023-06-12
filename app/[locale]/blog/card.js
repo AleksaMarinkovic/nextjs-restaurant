@@ -10,31 +10,11 @@ import { motion } from "framer-motion";
 const modalSettings = {
   overlay: {
     position: "fixed",
-    top: 0,
-    left: -200,
-    right: -200,
-    bottom: 0,
+    top: -200,
+    left: 0,
+    right: 0,
+    bottom: -200,
     backgroundColor: "rgba(255, 255, 255, 0.4)",
-    zIndex: 99,
-  },
-  content: {
-    position: "absolute",
-    top: "10vh",
-    left: "25vw",
-    right: "25vw",
-    bottom: "10vh",
-    background: "#f5f5f4",
-    overflow: "auto",
-    WebkitOverflowScrolling: "touch",
-    borderRadius: "0.5rem",
-    outline: "none",
-    padding: "2rem 5vw 2rem 5vw",
-    boxShadow: "0 0 50px 1px #333",
-    display: "flex",
-    flexFlow: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    margin: "0 5rem 0 5rem !important",
     zIndex: 99,
   },
 };
@@ -44,7 +24,7 @@ const Card = (params) => {
   const [post, setPost] = useState();
   const [translations, setTranslations] = useState();
   useEffect(() => {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement("body");
     setPost(params.post);
     setTranslations(params.translations);
   }, [params.post, params.translations]);
@@ -93,14 +73,18 @@ const Card = (params) => {
               style={modalSettings}
               onRequestClose={handleCloseModal}
               shouldCloseOnOverlayClick={true}
-              >
+              className={styles.modal}
+            >
               <div className={styles.modalContent}>
-                <button
-                  onClick={handleCloseModal}
-                  className={styles.actionModal}
-                >
-                  {translations.close}
-                </button>
+                <div className={styles.actionModalContainer}>
+                  <button
+                    onClick={handleCloseModal}
+                    className={styles.actionModal}
+                  >
+                    {translations.close}
+                  </button>
+                </div>
+
                 <h1 className={styles.modalTitle}>{post.attributes.title}</h1>
                 <div className={styles.modalImageWrapper}>
                   <Image
@@ -111,6 +95,9 @@ const Card = (params) => {
                     }
                     priority
                     fill
+                    style={{
+                      objectFit: "fill",
+                    }}
                   ></Image>
                 </div>
 

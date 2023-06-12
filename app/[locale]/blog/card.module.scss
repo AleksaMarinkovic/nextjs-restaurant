@@ -19,7 +19,7 @@
     opacity: 0;
 }
 
-.card:hover{
+.card:hover {
     border: 1px solid var(--secondary-color);
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.05);
 }
@@ -29,7 +29,7 @@
     text-align: center;
 }
 
-.imageWrapper{
+.imageWrapper {
     overflow: hidden;
     display: inline;
 }
@@ -113,12 +113,45 @@
     color: var(--primary-color-dark);
 }
 
+.modalOverlay {
+    position: fixed;
+    top: -200;
+    left: 0;
+    right: 0;
+    bottom: -200;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 99;
+}
+
+.modal {
+    position: absolute;
+    top: calc(200px + 10vh);
+    left: 25vw;
+    right: 25vw;
+    bottom: calc(200px + 10vh);
+    background: #f5f5f4;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0.5rem;
+    outline: none;
+    padding: 2rem 0 2rem 0;
+    box-shadow: 0 0 50px 1px #333;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    z-index: 99;
+}
+
+
 .modalContent {
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    width: 100%;
 }
 
 .modalTitle {
@@ -128,9 +161,9 @@
     font-weight: 600;
 }
 
-.modalImageWrapper{
+.modalImageWrapper {
     position: relative;
-    width: 500px;
+    width: 60%;
     aspect-ratio: 1;
 }
 
@@ -142,8 +175,16 @@
     white-space: pre-line;
 }
 
+.actionModalContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 2rem;
+}
 
-.actionModal{
+.actionModal {
     display: flex;
     width: 80px;
     height: 40px;
@@ -165,8 +206,23 @@
     background-color: var(--secondary-color-dark1);
 }
 
+@media only screen and (max-width: 1600px) {
+    .modal {
+        left: 20vw;
+        right: 20vw;
+    }
+}
+
 @media only screen and (max-width: 992px) {
-    .modalImageWrapper{
-        width: 70%;
+    .modal {
+        left: 15vw;
+        right: 15vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .modal {
+        left: 5vw;
+        right: 5vw;
     }
 }
