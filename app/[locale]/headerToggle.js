@@ -43,21 +43,21 @@ const HeaderToggle = ({ locale, translations }) => {
         </button>
       </div>
       <div>
-      <AnimatePresence>
-        {toggle && (
+        <AnimatePresence>
+          {toggle && (
             <motion.div
               key="header"
-              initial={{ rotateX: "90deg", height: 0}}
-              animate={{ rotateX: 0, height: "auto"}}
+              initial={{ rotateX: "90deg", height: 0 }}
+              animate={{ rotateX: 0, height: "auto" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              exit={{ rotateX: "90deg", height: 0}}
+              exit={{ rotateX: "90deg", height: 0 }}
             >
               <MobileHeader
                 translations={translations}
                 locale={locale}
               ></MobileHeader>
             </motion.div>
-        )}
+          )}
         </AnimatePresence>
       </div>
     </div>

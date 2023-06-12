@@ -30,7 +30,7 @@ export default async function Header({ locale }) {
     menu: t("menu"),
     gallery: t("gallery"),
     blog: t("blog"),
-    contact: t("contact"),
+    contact: t("contact")
   };
 
   return (
