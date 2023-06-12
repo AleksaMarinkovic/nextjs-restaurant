@@ -175,7 +175,7 @@
     white-space: pre-line;
 }
 
-.actionModalContainer{
+.actionModalContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -218,11 +218,27 @@
         left: 15vw;
         right: 15vw;
     }
+
+    .modalImageWrapper {
+        width: 65%;
+    }
+
+    .modalDesc {
+        max-width: 60%;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .modal {
         left: 5vw;
         right: 5vw;
+    }
+
+    .modalImageWrapper {
+        width: 70%;
+    }
+
+    .modalDesc {
+        max-width: 65%;
     }
 }
