@@ -58,6 +58,12 @@ export default async function Introduction({ params }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.background}>
+        <div className={styles.mobileHeader}>
+          <div className={styles.introHeader}>
+            <h1 className={kaushan.className}>{restaurantData.name}</h1>
+          </div>
+        </div>
+
         <div className={styles.imageWrapper}>
           <Image
             priority
@@ -70,9 +76,12 @@ export default async function Introduction({ params }) {
           ></Image>
         </div>
         <div className={styles.textWrapper}>
-          <div className={styles.introHeader}>
-            <h1 className={kaushan.className}>{restaurantData.name}</h1>
+          <div className={styles.desktopHeader}>
+            <div className={styles.introHeader}>
+              <h1 className={kaushan.className}>{restaurantData.name}</h1>
+            </div>
           </div>
+
           <p className={styles.description}>{restaurantData.description}</p>
           <Link href="/menu" className={styles.mainButton} locale={locale}>
             {t("menu").toUpperCase()}
