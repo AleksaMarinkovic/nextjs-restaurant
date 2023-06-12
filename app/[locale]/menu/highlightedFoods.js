@@ -31,7 +31,7 @@ const HighlightedFoods = (params) => {
       setLoadedHighlightedFoodsInfo(true);
     }
     getHighlightedFoodsData(params.locale);
-  }, []);
+  }, [params.locale]);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.header}>Izdvajamo: </h1>
