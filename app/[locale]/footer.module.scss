@@ -58,6 +58,15 @@
     color: var(--primary-color-dark);
 }
 
+.noLink{
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .language{
     display: flex;
     flex-direction: row;

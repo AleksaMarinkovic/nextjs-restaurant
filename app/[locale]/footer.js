@@ -105,7 +105,7 @@ export default async function Footer({ locale }) {
               )}
             </Link>
           ) : (
-            <div>
+            <div className={styles.noLink}>
               {restaurantData.attributes.location.street && (
                 <p>{restaurantData.attributes.location.street}</p>
               )}
