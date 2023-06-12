@@ -35,3 +35,18 @@ $offset: 120px;
     rotate: 90deg;
     z-index: 1;
 }
+
+@media only screen and (max-width: 992px) {
+    .wrapper {
+        margin: 0;
+    }
+    .leaf1 {
+        top: 50px;
+        left: 0;
+    }
+    
+    .leaf2 {
+        top: 100px;
+        right: 0;
+    }
+}
