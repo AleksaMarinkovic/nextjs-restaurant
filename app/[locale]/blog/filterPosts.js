@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import styles from "./filterPosts.module.scss";
 import settings from "../settings";
+import { useTranslations } from "next-intl";
 
 const FilterPosts = (params) => {
+  const t = useTranslations('Blog');
   const [types, setTypes] = useState([]);
   const [loadedTypes, setLoadedTypes] = useState(false);
   useEffect(() => {
@@ -31,7 +33,7 @@ const FilterPosts = (params) => {
       {loadedTypes && (
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>
-            &nbsp;{params.translations.tags}&nbsp;
+            &nbsp;{t('tags')}&nbsp;
           </legend>
           <div className={styles.radio}>
             <input
@@ -41,7 +43,7 @@ const FilterPosts = (params) => {
               onChange={handleChange}
               defaultChecked
             />
-            <label htmlFor="all" className={styles.label}>&nbsp;{params.translations.all}</label>
+            <label htmlFor="all" className={styles.label}>&nbsp;{ t('all')}</label>
           </div>
           {types.map((type) => (
             <div key={type.id} className={styles.radio}>

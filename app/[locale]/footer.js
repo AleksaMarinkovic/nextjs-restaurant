@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import styles from "./footer.module.scss";
 import QueryString from "qs";
 import settings from "./settings";
-import { Link } from "next-intl";
+import Link from "next-intl/link";
 import Image from "next/image";
 import twitter from "../../public/294709_circle_twitter_icon.svg";
 import instagram from "../../public/3225191_app_instagram_logo_media_popular_icon.svg";

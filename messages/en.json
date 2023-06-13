@@ -51,5 +51,8 @@
     "address": "Our address",
     "follow": "Follow our social media",
     "chooseLanguage": "Choose language:"
+  },
+  "Error": {
+    "errorMessage": "Failed to load data"
   }
 }

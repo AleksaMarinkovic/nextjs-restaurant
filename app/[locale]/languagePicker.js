@@ -5,7 +5,7 @@ import Image from "next/image";
 import FlagSerbia from "../../public/Flag-Serbia_50x30.webp";
 import FlagUk from "../../public/Flag-UK_50x30.webp";
 import styles from "./languagePicker.module.scss";
-import { Link } from "next-intl";
+import Link from "next-intl/link";
 
 const LanguagePicker = ({locale}) => {
   const pathname = usePathname();

@@ -11,9 +11,6 @@ const kaushan = Kaushan_Script({
 
 export default async function GalleryPage({ params }) {
   const t = await getTranslations("Gallery");
-  const translations = {
-    header: t("header"),
-  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -21,7 +18,7 @@ export default async function GalleryPage({ params }) {
           <h1 className={styles.headerText}>{t("header")}</h1>
         </div>
       </div>
-      <Gallery locale={params.locale} translations={translations}></Gallery>
+      <Gallery locale={params.locale}></Gallery>
     </div>
   );
 }

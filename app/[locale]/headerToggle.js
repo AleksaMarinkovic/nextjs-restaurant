@@ -5,7 +5,7 @@ import styles from "./headerToggle.module.scss";
 import MobileHeader from "./mobileHeader";
 import { motion, AnimatePresence } from "framer-motion";
 
-const HeaderToggle = ({ locale, translations }) => {
+const HeaderToggle = ({ locale }) => {
   const [toggle, setToggle] = useState(false);
   let toggleButton = createRef();
   const toggleClick = () => {
@@ -53,7 +53,6 @@ const HeaderToggle = ({ locale, translations }) => {
               exit={{ rotateX: "90deg", height: 0 }}
             >
               <MobileHeader
-                translations={translations}
                 locale={locale}
               ></MobileHeader>
             </motion.div>

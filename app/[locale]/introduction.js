@@ -3,7 +3,7 @@ import styles from "./introduction.module.scss";
 import settings from "./settings";
 import mainImage from "../../public/bar-long.webp";
 import { getTranslations } from "next-intl/server";
-import { Link } from "next-intl";
+import Link from "next-intl/link";
 import QueryString from "qs";
 import { Kaushan_Script } from "next/font/google";
 

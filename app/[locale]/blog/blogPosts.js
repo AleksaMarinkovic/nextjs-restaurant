@@ -7,15 +7,16 @@ import Card from "./card";
 import FilterPosts from "./filterPosts";
 import QueryString from "qs";
 import LoadingSpinner from "../loadingSpinner";
+import { useTranslations } from "next-intl";
 
 const BlogPosts = (params) => {
+  const t = useTranslations('Blog');
   const [filter, setFilter] = useState({
     pageSize: settings.blogPagination,
     locale: params.locale,
     type: ''
   });
   const [blogPosts, setBlogPosts] = useState([]);
-  const [translations, setTranslations] = useState(params.translations);
   const [loadedBlogPosts, setLoadedBlogPosts] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
 
@@ -71,7 +72,7 @@ const BlogPosts = (params) => {
     <div className={styles.wrapper}>
       {loadedBlogPosts ? (
         <div className={styles.blogPosts}>
-          <FilterPosts filterHandler={blogFilterHandler} translations={translations} locale={filter.locale}></FilterPosts>
+          <FilterPosts filterHandler={blogFilterHandler} locale={filter.locale}></FilterPosts>
           <div className={styles.container}>
             {blogPosts.map((post) => {
               return (
@@ -79,7 +80,6 @@ const BlogPosts = (params) => {
                   key={post.id}
                   locale={filter.locale}
                   post={post}
-                  translations={translations}
                 ></Card>
               );
             })}
@@ -94,7 +94,7 @@ const BlogPosts = (params) => {
                   }));
                 }}
               >
-                {translations.load}
+                {t('load')}
                 <span aria-hidden="true">→</span>
               </button>
             )}

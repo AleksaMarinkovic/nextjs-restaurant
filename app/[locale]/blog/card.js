@@ -6,6 +6,7 @@ import Image from "next/image";
 import ReactModal from "react-modal";
 import settings from "../settings";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const modalSettings = {
   overlay: {
@@ -22,12 +23,11 @@ const modalSettings = {
 const Card = (params) => {
   const [showModal, setShowModal] = useState(false);
   const [post, setPost] = useState();
-  const [translations, setTranslations] = useState();
+  const t = useTranslations('Blog');
   useEffect(() => {
     ReactModal.setAppElement("body");
     setPost(params.post);
-    setTranslations(params.translations);
-  }, [params.post, params.translations]);
+  }, [params.post]);
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -39,7 +39,7 @@ const Card = (params) => {
 
   return (
     <div className={styles.cardWrapper}>
-      {post && translations && (
+      {post && (
         <motion.div
           className={styles.card}
           animate={{ opacity: 1 }}
@@ -64,7 +64,7 @@ const Card = (params) => {
             <h1 className={styles.title}>{post.attributes.title}</h1>
             <p className={styles.desc}>{post.attributes.description}</p>
             <button onClick={handleOpenModal} className={styles.action}>
-              {translations.more}
+              {t('more')}
               <span aria-hidden="true">→</span>
             </button>
             <ReactModal
@@ -81,7 +81,7 @@ const Card = (params) => {
                     onClick={handleCloseModal}
                     className={styles.actionModal}
                   >
-                    {translations.close}
+                    {t('close')}
                   </button>
                 </div>
 

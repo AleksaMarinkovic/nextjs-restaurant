@@ -13,11 +13,6 @@ const baskervville = Baskervville({
 });
 export default async function MenuPage({ params }) {
   const t = await getTranslations("Menu");
-  const translations = {
-    food: t("food"),
-    drink: t("drink"),
-    title: t("title"),
-  };
   return (
     <div className={baskervville.className}>
       <div className={styles.wrapper}>
@@ -28,7 +23,7 @@ export default async function MenuPage({ params }) {
             alt="Leaf"
             draggable="false"
           ></Image>
-          <Menu translations={translations} locale={params.locale}></Menu>
+          <Menu locale={params.locale}></Menu>
           <Image
             src={Leaf}
             className={styles.leaf2}

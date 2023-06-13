@@ -1,6 +1,6 @@
 import styles from "./header.module.scss";
 import Image from "next/image";
-import { Link } from "next-intl";
+import Link from "next-intl/link";
 import settings from "./settings";
 import { getTranslations } from "next-intl/server";
 import { Baskervville } from "next/font/google";
@@ -57,7 +57,7 @@ export default async function Header({ locale }) {
           <NavItem href="/blog" text={t("blog")} locale={locale} />
           <NavItem href="/contact" text={t("contact")} locale={locale} />
         </nav>
-      </header>{" "}
+      </header>
       <HeaderToggle locale={locale} translations={translations}></HeaderToggle>
     </div>
   );

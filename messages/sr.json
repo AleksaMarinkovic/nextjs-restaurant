@@ -52,5 +52,8 @@
     "address": "Adresa",
     "follow": "Pratite nas",
     "chooseLanguage": "Choose language:"
+  },
+  "Error": {
+    "errorMessage": "Neuspelo učitavanje podataka"
   }
 }

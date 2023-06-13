@@ -1,7 +1,7 @@
 import "./globals.scss";
-import styles from './layout.module.scss'
+import styles from "./layout.module.scss";
 import Header from "./header";
-import { useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Quicksand } from "next/font/google";
 import Footer from "./footer";
@@ -18,21 +18,27 @@ const quicksand = Quicksand({
   weight: "300",
 });
 
-export default function LocaleLayout({ children, params }) {
-  const locale = useLocale();
-
-  if (params.locale !== locale) {
+async function getMessages(locale) {
+  try {
+    return (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
     notFound();
   }
+}
 
+
+export default async function LocaleLayout({ children, params }) {
+  const messages = await getMessages(params.locale);
   return (
-    <html lang={locale} className={quicksand.className}>
+    <html lang={params.locale} className={quicksand.className}>
       <body>
-        <div className={styles.container}>
-          <Header locale={params.locale}></Header>
-          <main>{children}</main>
-          <Footer locale={params.locale}></Footer>
-        </div>
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <div className={styles.container}>
+            <Header locale={params.locale}></Header>
+            <main>{children}</main>
+            <Footer locale={params.locale}></Footer>
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

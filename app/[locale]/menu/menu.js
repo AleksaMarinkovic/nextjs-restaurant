@@ -6,7 +6,7 @@ import settings from "../settings";
 import QueryString from "qs";
 import MenuItems from "./menuItems";
 import { Kaushan_Script } from "next/font/google";
-import HighlightedFoods from "./highlightedFoods";
+import { useTranslations } from "next-intl";
 import LoadingSpinner from "../loadingSpinner";
 
 const Categories = {
@@ -25,6 +25,8 @@ const Menu = (params) => {
   const [subCategories, setSubCategories] = useState([]);
   const [activeSubCategory, setActiveSubCategory] = useState();
   const [loadedSubCategories, setLoadedSubCategories] = useState(false);
+
+  const t = useTranslations('Menu');
 
   useEffect(() => {
     async function getCategories(locale) {
@@ -66,12 +68,14 @@ const Menu = (params) => {
 
   const onSubCategoryClick = (e) => {
     setActiveSubCategory(e.target.id);
+    const menu = document.getElementById("menu");
+    menu.scrollIntoView({ behavior: "smooth", block: "start"});
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={kaushan.className}>
-        <h1 className={styles.header}>{params.translations.title}</h1>
+        <h1 className={styles.header}>{t('title')}</h1>
       </div>
       <div className={styles.categories}>
         <div
@@ -83,7 +87,7 @@ const Menu = (params) => {
           id={Categories.Food.categoryName}
           onClick={onCategoryClick}
         >
-          {params.translations.food}
+          {t('food')}
         </div>
         <div
           className={
@@ -94,7 +98,7 @@ const Menu = (params) => {
           id={Categories.Drink.categoryName}
           onClick={onCategoryClick}
         >
-          {params.translations.drink}
+          {t('drink')}
         </div>
       </div>
       <div className={styles.separator}></div>
@@ -118,7 +122,7 @@ const Menu = (params) => {
           })}
         </div>
       ) : (<LoadingSpinner size={50}/>)}
-      <div className={styles.separator}></div>
+      <div id="menu" className={styles.separator}></div>
       <MenuItems
         activeCategory={activeCategory}
         activeSubCategory={activeSubCategory}
