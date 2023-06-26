@@ -54,6 +54,7 @@ const HeaderToggle = ({ locale }) => {
             >
               <MobileHeader
                 locale={locale}
+                clickHandler={toggleClick}
               ></MobileHeader>
             </motion.div>
           )}
