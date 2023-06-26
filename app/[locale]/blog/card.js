@@ -55,8 +55,8 @@ const Card = (params) => {
               onClick={handleOpenModal}
               className={styles.image}
               priority
-              width={300}
-              height={300}
+              width={320}
+              height={320}
             ></Image>
           </div>
 

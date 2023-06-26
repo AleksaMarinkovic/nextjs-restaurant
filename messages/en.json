@@ -14,9 +14,11 @@
     "blog": "Events"
   },
   "Menu": {
-    "title": "- Our menu -",
+    "title": "Our menu",
     "food": "Food",
-    "drink": "Drinks"
+    "drink": "Drinks",
+    "description": "Welcome to our restaurant! Discover delicious specialties that will satisfy your senses. Enjoy creative cuisine, fresh ingredients, and a unique experience. Visit us and let us enchant you with the best dishes in town."
+
   },
   "Gallery": {
     "header": "Take a peek at our beautiful atmosphere and delicious food"
@@ -43,7 +45,9 @@
     "load": "Older news",
     "close": "Close",
     "tags": "Choose type",
-    "all": "Both"
+    "all": "Both",
+    "search": "Search posts...",
+    "noResult": "No posts match this criteria"
   },
   "Footer": {
     "contact": "Contact",

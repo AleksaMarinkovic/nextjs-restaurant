@@ -8,13 +8,22 @@ import FilterPosts from "./filterPosts";
 import QueryString from "qs";
 import LoadingSpinner from "../loadingSpinner";
 import { useTranslations } from "next-intl";
+import { Kaushan_Script } from "next/font/google";
+import SearchPosts from "./searchPosts";
+
+const kaushan = Kaushan_Script({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 const BlogPosts = (params) => {
-  const t = useTranslations('Blog');
+  const t = useTranslations("Blog");
   const [filter, setFilter] = useState({
     pageSize: settings.blogPagination,
     locale: params.locale,
-    type: ''
+    type: "",
+    title: "",
   });
   const [blogPosts, setBlogPosts] = useState([]);
   const [loadedBlogPosts, setLoadedBlogPosts] = useState(false);
@@ -22,67 +31,83 @@ const BlogPosts = (params) => {
 
   useEffect(() => {
     async function getBlogsNextPage(locale, pageSize) {
-
-      const query = QueryString.stringify({
-        sort: ['updatedAt:desc'],
-        pagination: {
-          page: 1,
-          pageSize: pageSize
-        },
-        filters: {
-          type: {
+      const query = QueryString.stringify(
+        {
+          sort: ["updatedAt:desc"],
+          pagination: {
+            page: 1,
+            pageSize: pageSize,
+          },
+          filters: {
+            title: {
+              $containsi: filter.title,
+            },
             type: {
-              $contains: filter.type
+              type: {
+                $contains: filter.type,
+              },
             },
           },
+          fields: ["title", "description", "eventTime"],
+          locale: [locale],
+          populate: ["categories", "thumbnail", "type"],
         },
-        fields: ['title', 'description', 'eventTime'],
-        locale: [locale],
-        populate: ['categories', 'thumbnail', 'type']
-      }, {
-        encodeValuesOnly: true,
-      });
+        {
+          encodeValuesOnly: true,
+        }
+      );
       const res = await fetch(
         `${settings.backendUrl}/api/blog-posts?${query}`,
         { next: { revalidate: settings.revalidateTime } }
       );
       const data = await res.json();
-      if(data.data){
+      if (data.data) {
         setBlogPosts(data.data);
         setLoadedBlogPosts(true);
       }
       if (data.meta.pagination.total === data.data.length) {
         setIsEnd(true);
-      }else{
+      } else {
         setIsEnd(false);
       }
     }
     getBlogsNextPage(filter.locale, filter.pageSize);
   }, [filter]);
 
-
   const blogFilterHandler = (filter) => {
-    setFilter(prevState => ({
+    setFilter((prevState) => ({
       ...prevState,
-      ...filter
-    }))
-  }
+      ...filter,
+    }));
+  };
 
   return (
     <div className={styles.wrapper}>
       {loadedBlogPosts ? (
-        <div className={styles.blogPosts}>
-          <FilterPosts filterHandler={blogFilterHandler} locale={filter.locale}></FilterPosts>
-          <div className={styles.container}>
-            {blogPosts.map((post) => {
-              return (
-                <Card
-                  key={post.id}
-                  locale={filter.locale}
-                  post={post}
-                ></Card>
-              );
-            })}
+        <div style={{ width: "100%" }}>
+          <div className={styles.blogPosts}>
+            <h1 className={`${styles.header} ${kaushan.className}`}>
+              {t("blog")}
+            </h1>
+            <div className={styles.filterAndSearch}>
+              <FilterPosts
+                filterHandler={blogFilterHandler}
+                locale={filter.locale}
+              ></FilterPosts>
+              <SearchPosts
+                filterHandler={blogFilterHandler}
+                locale={filter.locale}
+              ></SearchPosts>
+            </div>
+
+            {blogPosts.length > 0 ? (<div className={styles.container}>
+              {blogPosts.map((post) => {
+                return (
+                  <Card key={post.id} locale={filter.locale} post={post}></Card>
+                );
+              })}
+            </div>) :(<div className={`${styles.noItemsText} ${kaushan.className}`}><p>{t('noResult')}</p></div>)}
+            
             {!isEnd && (
               <button
                 className={styles.action}
@@ -94,14 +119,16 @@ const BlogPosts = (params) => {
                   }));
                 }}
               >
-                {t('load')}
+                {t("load")}
                 <span aria-hidden="true">→</span>
               </button>
             )}
           </div>
         </div>
       ) : (
-        <LoadingSpinner size={70} color='#9e7441' padding='10rem'/>
+        <div className={styles.wrapper}>
+          <LoadingSpinner size={70} color="#9e7441" padding="10rem" />
+        </div>
       )}
     </div>
   );

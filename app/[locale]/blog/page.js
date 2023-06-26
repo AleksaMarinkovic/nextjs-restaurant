@@ -6,7 +6,6 @@ export default async function BlogPage({ params }) {
     const t = await getTranslations('Blog');
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.header}>{t('blog')}</h1>
       <BlogPosts locale={params.locale}></BlogPosts>
     </div>
   );

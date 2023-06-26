@@ -1,7 +1,7 @@
 .navItemActive {
     color: var(--secondary-color-dark2);
     text-decoration: none;
-    transition: color 0.5s;
+    transition: color var(--transition-time);
     display: inline-block;
     position: relative;
     padding: 10px 0 10px 0;
@@ -21,7 +21,7 @@
     left: 0;
     background-color: var(--secondary-color-dark2);
     transform-origin: bottom center;
-    transition: transform 0.25s ease-in, background-color 0.5s;
+    transition: transform var(--transition-time) ease-in, background-color var(--transition-time);
     transform: scaleX(1);
 }
 
@@ -32,7 +32,7 @@
 .navItemNonActive {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.5s;
+    transition: color var(--transition-time);
     display: inline-block;
     position: relative;
     padding: 10px 0 10px 0;
@@ -52,7 +52,7 @@
     left: 0;
     background-color: var(--primary-color-alt);
     transform-origin: bottom center;
-    transition: transform 0.25s ease-out;
+    transition: transform var(--transition-time) ease-out;
 }
 
 .navItemNonActive:hover::after {

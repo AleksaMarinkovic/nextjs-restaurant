@@ -60,7 +60,7 @@ export default async function Introduction({ params }) {
       <div className={styles.background}>
         <div className={styles.mobileHeader}>
           <div className={styles.introHeader}>
-            <h1 className={kaushan.className}>{restaurantData.name}</h1>
+            <h1 className={kaushan.className}>Dobrodošli u {restaurantData.name}</h1>
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default async function Introduction({ params }) {
         <div className={styles.textWrapper}>
           <div className={styles.desktopHeader}>
             <div className={styles.introHeader}>
-              <h1 className={kaushan.className}>{restaurantData.name}</h1>
+              <h1 className={kaushan.className}>Dobrodošli u {restaurantData.name}</h1>
             </div>
           </div>
 

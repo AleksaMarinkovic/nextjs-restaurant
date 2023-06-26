@@ -4,9 +4,16 @@ import { useState, useEffect } from "react";
 import styles from "./filterPosts.module.scss";
 import settings from "../settings";
 import { useTranslations } from "next-intl";
+import { Kaushan_Script } from "next/font/google";
+
+const kaushan = Kaushan_Script({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 const FilterPosts = (params) => {
-  const t = useTranslations('Blog');
+  const t = useTranslations("Blog");
   const [types, setTypes] = useState([]);
   const [loadedTypes, setLoadedTypes] = useState(false);
   useEffect(() => {
@@ -24,7 +31,7 @@ const FilterPosts = (params) => {
 
   const handleChange = (e) => {
     params.filterHandler({
-      type: e.target.id,
+      type: e.target.value,
     });
   };
 
@@ -32,32 +39,38 @@ const FilterPosts = (params) => {
     <div className={styles.wrapper}>
       {loadedTypes && (
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>
-            &nbsp;{t('tags')}&nbsp;
+          <legend className={`${styles.legend} ${kaushan.className}`}>
+            &nbsp;{t("tags")}&nbsp;
           </legend>
-          <div className={styles.radio}>
-            <input
-              type="radio"
-              id=""
-              name="type"
-              onChange={handleChange}
-              defaultChecked
-            />
-            <label htmlFor="all" className={styles.label}>&nbsp;{ t('all')}</label>
-          </div>
-          {types.map((type) => (
-            <div key={type.id} className={styles.radio}>
+          <div className={styles.options}>
+            {types.map((type) => (
+              <div key={type.id} className={styles.radio}>
+                <input
+                  type="radio"
+                  id={type.attributes.type}
+                  value={type.attributes.type}
+                  name="type"
+                  onChange={handleChange}
+                />
+                <label htmlFor={type.attributes.type} className={styles.label}>
+                  &nbsp;{type.attributes.type}
+                </label>
+              </div>
+            ))}
+            <div className={styles.radio}>
               <input
                 type="radio"
-                id={type.attributes.type}
+                id="all"
+                value={''}
                 name="type"
                 onChange={handleChange}
+                defaultChecked
               />
-              <label htmlFor={type.attributes.type} className={styles.label}>
-                &nbsp;{type.attributes.type}
+              <label htmlFor="all" className={styles.label}>
+                &nbsp;{t("all")}
               </label>
             </div>
-          ))}
+          </div>
         </fieldset>
       )}
     </div>

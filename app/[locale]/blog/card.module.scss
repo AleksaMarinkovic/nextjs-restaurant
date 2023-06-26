@@ -7,7 +7,7 @@
 }
 
 .cardWrapper {
-    max-width: 300px;
+    max-width: 320px;
 }
 
 .card {
@@ -194,16 +194,16 @@
     font-weight: 400;
     align-items: center;
     justify-content: center;
-    background-color: var(--secondary-color);
+    background-color: var(--red);
     border-radius: 4px;
-    border-color: var(--secondary-color);
+    border-color: var(--red);
     cursor: pointer;
     padding: 0.3rem 0.8rem 0.3rem 0.8rem;
     transition: 0.3s ease;
 }
 
 .actionModal:hover {
-    background-color: var(--secondary-color-dark1);
+    background-color: var(--red-dark);
 }
 
 @media only screen and (max-width: 1600px) {

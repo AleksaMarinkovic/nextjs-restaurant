@@ -15,9 +15,10 @@
     "blog": "Kalendar događaja"
   },
   "Menu": {
-    "title": "- Naš jelovnik -",
+    "title": "Naš jelovnik",
     "food": "Hrana",
-    "drink": "Piće"
+    "drink": "Piće",
+    "description": "Dobrodošli u naš restoran! Otkrijte ukusne specijalitete koji će zadovoljiti Vaša čula. Uživajte u kreativnoj kuhinji, svežim sastojcima i jedinstvenom iskustvu. Posetite nas i dozvolite nam da vas očaramo najboljim jelima u gradu."
   },
   "Gallery": {
     "header": "Pogledajte našu prelepu atmosferu i ukusnu hranu"
@@ -44,7 +45,9 @@
     "load": "Starije vesti",
     "close": "Zatvori",
     "tags": "Izaberite tip",
-    "all": "Oba"
+    "all": "Oba",
+    "search": "Pretraži objave...",
+    "noResult": "Nema objava sa ovim kriterijumom"
   },
   "Footer": {
     "contact": "Kontakt",
